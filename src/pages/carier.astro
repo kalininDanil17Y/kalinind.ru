@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Карьера"
+	pubDate={new Date('January 14 2024')}
+>
+	<style>
+		.container {
+			text-align: center;
+			margin-bottom: 100px;
+		}
+
+		.container p {
+			margin: 0;
+			padding: 0;
+		}
+
+		.container .title {
+			font-size: 20px;
+		}
+
+		.container .body {
+			text-align: left;
+		}
+
+		.container img {
+			object-fit: cover;
+			width: 400px;
+			height: 200px;
+		}
+	</style>
+
+	<div class="container">
+		<div class="title">
+			<img src="/images/vc.png" alt="" />
+			<p>Комитет</p>
+			<a href="https://cmtt.ru" target="_blank">cmtt.ru</a>
+			<h5>2021 - 2022</h5>
+		</div>
+		<div class="body">
+			В 2021 году я работал в CMTT.RU над сайтами vc.ru и dtf.ru, занимался фиксами старых багов, выполнял миграции баз данных и разработку новых фичей.
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="title">
+			<img src="/images/cryptopirates.jpg" alt="" />
+			<p>CryptoPirates</p>
+			<a href="https://crypto-pirates.app/" target="_blank">Crypto-Pirates.app</a>
+			<h5>2022 - 2023</h5>
+		</div>
+		<div class="body">
+			С 2022 года работал в CryptoPirates, занимался разработкой Backend'а на php, сайта личного кабинета, интеграцией xsolla и систему оплаты через карту.
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="title">
+			<img src="/images/botva.jpeg" alt="" />
+			<p>Botva</p>
+			<a href="https://botva.ru/" target="_blank">Botva.ru</a>
+			<h5>2023</h5>
+		</div>
+		<div class="body">
+			С 2022 года работал в CryptoPirates, занимался разработкой Backend'а на php, сайта личного кабинета, интеграцией xsolla и систему оплаты через карту.
+		</div>
+	</div>
+</Layout>

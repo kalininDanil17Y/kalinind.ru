@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Проекты"
+	pubDate={new Date('January 14 2024')}
+>
+	<style>
+		.container {
+			text-align: center;
+			margin-bottom: 100px;
+		}
+
+		.container p {
+			margin: 0;
+			padding: 0;
+		}
+
+		.container .body {
+			text-align: left;
+		}
+
+		.container img {
+			object-fit: cover;
+			width: 400px;
+			height: 200px;
+		}
+	</style>
+
+	<div class="container">
+		<div class="title">
+			<img src="/images/projects/vdspace.png" alt="" />
+			<h4>VDSpace</h4>
+		</div>
+		<div class="body">
+			Сервис аренды виртуальных серверов для малого бизнеса, хостинг сайтов и регистратор доменов
+		</div>
+	</div>
+</Layout>
