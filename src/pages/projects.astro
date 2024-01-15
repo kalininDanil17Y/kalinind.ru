@@ -3,38 +3,67 @@ import Layout from '../layouts/BlogPost.astro';
 ---
 
 <Layout
-	title="Проекты"
+	title="Личные проекты"
 	pubDate={new Date('January 14 2024')}
+	description="Пет проекты"
 >
-	<style>
-		.container {
-			text-align: center;
-			margin-bottom: 100px;
-		}
-
-		.container p {
-			margin: 0;
-			padding: 0;
-		}
-
-		.container .body {
-			text-align: left;
-		}
-
-		.container img {
-			object-fit: cover;
-			width: 400px;
-			height: 200px;
-		}
-	</style>
+	<div class="container">
+		<div class="title">
+			<h4>BloodyAssistant</h4>
+		</div>
+		<div class="body">
+			Голосовой ассистент для управления умным домом, для управления есть удобная веб панель управления и android приложение
+		</div>
+		<div class="langlist">
+			<b class="icon icon-vue"/>
+			<b class="icon icon-js"/>
+			<b class="icon icon-php"/>
+			<b class="icon icon-flutter"/>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="title">
-			<img src="/images/projects/vdspace.png" alt="" />
+			<div class="imgbox gallery">
+				<a href="/images/projects/vdspace.png">
+					<img src="/images/projects/vdspace-mini.png" data-at-450="/images/projects/vdspace-mini.png" alt="" />
+				</a>
+			</div>
 			<h4>VDSpace</h4>
 		</div>
 		<div class="body">
 			Сервис аренды виртуальных серверов для малого бизнеса, хостинг сайтов и регистратор доменов
 		</div>
+		<div class="langlist">
+			<b class="icon icon-php"/>
+			<b class="icon icon-vue"/>
+			<b class="icon icon-js"/>
+		</div>
 	</div>
+
+	<div class="container">
+		<div class="title">
+			<div class="imgbox gallery">
+				<a href="/images/projects/zendorbot.png">
+					<img src="/images/projects/zendorbot-mini.png" data-at-450="/images/projects/zendorbot-mini.png" alt="" />
+				</a>
+			</div>
+			<h4>ZendorBot</h4>
+		</div>
+		<div class="body">
+			Простой игровой бот для ВК, изучал возможности PHP и NodeJS
+		</div>
+		<div class="langlist">
+			<b class="icon icon-php"/>
+			<b class="icon icon-js"/>
+		</div>
+	</div>
+
+	<script type="application/javascript">
+		baguetteBox.run('.imgbox', {
+			captions: function(element) {
+				return element.getElementsByTagName('img')[0].alt;
+			}
+		});
+	</script>
 </Layout>
