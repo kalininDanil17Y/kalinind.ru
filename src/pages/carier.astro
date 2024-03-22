@@ -9,15 +9,25 @@ import Layout from '../layouts/BlogPost.astro';
 >
 	<div class="container">
 		<div class="title">
-			<img src="/images/vc.png" alt="" />
+
+			<div class="imgbox gallery">
+				<a href="/images/vc.png">
+					<img src="/images/vc.png" alt="" />
+				</a>
+			</div>
+
 			<p>Комитет</p>
 			<div class="link">
 				<a href="https://cmtt.ru" target="_blank">cmtt.ru</a>
 			</div>
 			<h5>2021 - 2022</h5>
 		</div>
-		<div class="body">
+		<div class="body center">
 			В рамках работы в компании "Комитет" я участвовал в проектах vc.ru и dtf.ru - престижных информационных новостных порталов, предлагающих актуальные новости и интересный контент своим читателям. В 2021 году моя деятельность в CMTT.RU была основана на улучшении пользовательского опыта: я занимался оперативными исправлениями старых багов, проводил успешные миграции баз данных, а также разрабатывал и внедрял новые функциональности для улучшения работы сайтов. Моя работа способствовала повышению качества сервиса и удовлетворенности пользователей, поддерживая высокую планку профессионализма и инноваций в проектах "vc.ru" и "dtf.ru" вместе с командой "Комитет".
+		</div>
+		<div class="langlist center">
+			<b class="icon icon-js" data-tippy-content="JavaScript"/>
+			<b class="icon icon-php" data-tippy-content="PHP"/>
 		</div>
 	</div>
 
@@ -25,15 +35,26 @@ import Layout from '../layouts/BlogPost.astro';
 
 	<div class="container">
 		<div class="title">
-			<img src="/images/cryptopirates.jpg" alt="" />
+
+			<div class="imgbox gallery">
+				<a href="/images/cryptopirates.jpg">
+					<img src="/images/cryptopirates.jpg" alt="" />
+				</a>
+			</div>
+
 			<p>CryptoPirates</p>
 			<div class="link">
 				<a href="https://crypto-pirates.app/" target="_blank">Crypto-Pirates.app</a>
 			</div>
 			<h5>2022 - 2023</h5>
 		</div>
-		<div class="body">
+		<div class="body center">
 			В рамках проекта CryptoPirates я занимал ключевую роль в разработке Backend'а на языке PHP, создании и оптимизации функционала личного кабинета, а также интеграции платежной системы Xsolla для удобстваа игроков. Моя работа также включала в себя настройку безопасной системы оплаты через банковские карты, обеспечивая надежность и удобство для всех участников проекта CryptoPirates. Моя цель заключалась в создании надежного и эффективного технического фундамента, который помогал проекту процветать в мире криптовалют и пиратства!
+		</div>
+		<div class="langlist center">
+			<b class="icon icon-js" data-tippy-content="JavaScript"/>
+			<b class="icon icon-php" data-tippy-content="PHP"/>
+			<b class="icon icon-nextjs" data-tippy-content="NextJS"/>
 		</div>
 	</div>
 
@@ -41,15 +62,34 @@ import Layout from '../layouts/BlogPost.astro';
 
 	<div class="container">
 		<div class="title">
-			<img src="/images/botva.jpeg" alt="" />
+
+			<div class="imgbox gallery">
+				<a href="/images/botva.jpeg">
+					<img src="/images/botva.jpeg" alt="" />
+				</a>
+			</div>
+
 			<p>Botva.ru</p>
 			<div class="link">
 				<a href="https://botva.ru/" target="_blank">Botva.ru</a>
 			</div>
 			<h5>2023</h5>
 		</div>
-		<div class="body">
+		<div class="body center">
 			С 2023 года, в рамках проекта "Ботва" я привношу креативность и профессионализм, занимаясь разработкой захватывающих ивентов, переписыванием наследственного кода для оптимизации процессов. Моей задачей является поиск эффективных решений для сложных технических задач, что позволяет проекту "Ботва" продолжать развиваться и совершенствоваться. Амбициозно двигаясь вперед, я стремлюсь к созданию уникального игрового опыта для наших пользователей и красивого будущего для проекта!
 		</div>
+		<div class="langlist center">
+			<b class="icon icon-js" data-tippy-content="JavaScript"/>
+			<b class="icon icon-php" data-tippy-content="PHP"/>
+			<b class="icon icon-vue" data-tippy-content="Vue"/>
+		</div>
 	</div>
+
+	<script type="application/javascript">
+		baguetteBox.run('.imgbox', {
+			captions: function(element) {
+				return element.getElementsByTagName('img')[0].alt;
+			}
+		});
+	</script>
 </Layout>
