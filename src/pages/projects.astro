@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import {SITE_TITLE} from "../consts";
 ---
 
 <Layout
-	title="Личные проекты"
+	title=`Личные проекты | ${SITE_TITLE}`
+	pageTitle=`Личные проекты`
 	pubDate={new Date('January 14 2024')}
-	description="Пет проекты"
+	description="Мои личные и заказные прокеты, здесь представлены мои лучшие проекты."
 >
 	<div class="container">
 		<div class="title">

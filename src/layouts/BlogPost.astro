@@ -9,7 +9,7 @@ type Props = CollectionEntry<'blog'>['data'];
 
 import '../scss/global.sass'
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, pageTitle, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="ru">
@@ -37,7 +37,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 									)
 								}
 							</div>
-							<h1>{title}</h1>
+							<h1>{pageTitle}</h1>
 							<hr />
 						</div>
 						<slot />

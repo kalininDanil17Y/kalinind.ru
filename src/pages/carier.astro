@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <Layout
-	title="Карьера"
+	title=`Карьера | ${SITE_TITLE}`
+	pageTitle=`Карьера`
 	pubDate={new Date('January 14 2024')}
-	description="Места работы"
+	description=`Узнайте больше о моем профессиональном пути, заметках карьерного роста и уникальных навыках. Во время моей карьеры, я работал на различных позициях в ведущих компаниях, получив ценный опыт и навыки, которые делимся на данной странице.`
 >
 	<div class="container">
 		<div class="title">
