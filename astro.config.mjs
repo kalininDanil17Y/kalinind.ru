@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ro2005.ru',
+	site: 'https://kalinind.ru',
 	integrations: [mdx(), sitemap()],
 });
