@@ -3,7 +3,7 @@ import Layout from '../layouts/BlogPost.astro';
 import { getLocale, getLocaleTexts } from '../utils/localize';
 const locale = getLocale(Astro.request);
 
-const localeTexts = await getLocaleTexts(locale)
+const localeTexts: any = await getLocaleTexts(locale)
 const title = localeTexts.title;
 const texts = localeTexts.pages.projects;
 ---
@@ -15,7 +15,7 @@ const texts = localeTexts.pages.projects;
 	description={texts.description}
 >
 
-	{texts.content.map(content =>
+	{texts.content.map((content: any) =>
 		<div class="container">
 			<div class="title">
 				{content.img &&
@@ -31,7 +31,7 @@ const texts = localeTexts.pages.projects;
 				{content.body}
 			</div>
 			<div class="langlist center">
-				{content.stacks.map(stack => <b class={"icon icon-" + stack.tag} data-tippy-content={stack.text}/>)}
+				{content.stacks.map((stack: any) => <b class={"icon icon-" + stack.tag} data-tippy-content={stack.text}/>)}
 			</div>
 		</div>
 

@@ -3,7 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 
 import { getLocale, getLocaleTexts } from '../utils/localize';
 let locale = getLocale(Astro.request);
-const localeTexts = await getLocaleTexts(locale)
+const localeTexts: any = await getLocaleTexts(locale)
 const title = localeTexts.title;
 const header = localeTexts.header;
 ---
@@ -12,7 +12,7 @@ const header = localeTexts.header;
 	<nav>
 		<h2><a href="/">{title}</a></h2>
 		<div class="internal-links">
-			{header.map(link =>
+			{header.map((link: any) =>
 				<HeaderLink href={link.href}>{link.text}</HeaderLink>
 			)}
 			<!--<HeaderLink href="/pro.firpo.ru">ЧВТ</HeaderLink>-->
@@ -98,3 +98,10 @@ const header = localeTexts.header;
 		}
 	}
 </style>
+<script type="application/javascript" is:inline>
+	function changeLanguage(locale) {
+		document.cookie = `locale=${locale}; path=/; SameSite=Lax`;
+		location.reload();
+	}
+</script>
+

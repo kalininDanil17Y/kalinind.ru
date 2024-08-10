@@ -63,7 +63,7 @@ const today = new Date();
 		color: rgb(var(--gray-dark));
 	}
 </style>
-<script type="application/javascript">
+<script type="application/javascript" is:inline>
 	window.addEventListener('load', function () {
 		baguetteBox.run('.imgbox', {
 			captions: function(element) {
@@ -71,9 +71,4 @@ const today = new Date();
 			}
 		});
 	})
-
-	function changeLanguage(locale) {
-		document.cookie = `locale=${locale}; path=/; SameSite=Lax`;
-		location.reload();
-	}
 </script>

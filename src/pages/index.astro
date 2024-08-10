@@ -6,7 +6,7 @@ import { getLocale, getLocaleTexts } from '../utils/localize';
 
 const locale = getLocale(Astro.request);
 
-const localeTexts = await getLocaleTexts(locale)
+const localeTexts: any = await getLocaleTexts(locale)
 const title = localeTexts.title;
 const texts = localeTexts.pages.index;
 ---
@@ -25,7 +25,7 @@ const texts = localeTexts.pages.index;
 			<p>{texts.programming_skills}</p>
 			<h3>{texts.skills_title}</h3>
 			<ul>
-				{texts.skills.map(skill => <li>{skill}</li>)}
+				{texts.skills.map((skill: any) => <li>{skill}</li>)}
 			</ul>
 			<p>{texts.additional_info}</p>
 			<p>{texts.additional_info2}</p>
