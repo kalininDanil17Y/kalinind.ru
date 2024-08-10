@@ -1,67 +1,38 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import {SITE_TITLE} from "../consts";
+import { getLocale, getLocaleTexts } from '../utils/localize';
+const locale = getLocale(Astro.request);
+const title = (await getLocaleTexts(locale)).title
+const texts = (await getLocaleTexts(locale)).pages.projects;
 ---
 
 <Layout
-	title=`Личные проекты | ${SITE_TITLE}`
-	bodyTitle='Личные проекты'
+	title=`${texts.bodyTitle} | ${title}`
+	bodyTitle={texts.bodyTitle}
 	pubDate={new Date('January 14 2024')}
-	description="Мои личные и заказные прокеты, здесь представлены мои лучшие проекты."
+	description={texts.description}
 >
-	<div class="container">
-		<div class="title">
-			<h4>BloodyAssistant</h4>
-		</div>
-		<div class="body center">
-			Голосовой ассистент для управления умным домом, для управления есть удобная веб панель управления и android приложение
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-vue" data-tippy-content="vue"/>
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-			<b class="icon icon-flutter" data-tippy-content="Flutter"/>
-		</div>
-	</div>
 
-	<hr>
-
-	<div class="container">
-		<div class="title">
-			<div class="imgbox gallery">
-				<a href="/images/projects/vdspace.png">
-					<img src="/images/projects/vdspace-mini.png" data-at-450="/images/projects/vdspace-mini.png" alt="" />
-				</a>
+	{texts.content.map(content =>
+		<div class="container">
+			<div class="title">
+				{content.img &&
+					<div class="imgbox gallery">
+						<a href={content.img}>
+							<img src={content.img_mini} data-at-450={content.img_mini} alt="" />
+						</a>
+					</div>
+				}
+				<h4>{content.title}</h4>
 			</div>
-			<h4>VDSpace</h4>
-		</div>
-		<div class="body center">
-			Сервис аренды виртуальных серверов для малого бизнеса, хостинг сайтов и регистратор доменов
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-			<b class="icon icon-vue" data-tippy-content="vue"/>
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-		</div>
-	</div>
-
-	<hr>
-
-	<div class="container">
-		<div class="title">
-			<div class="imgbox gallery">
-				<a href="/images/projects/zendorbot.png">
-					<img src="/images/projects/zendorbot-mini.png" data-at-450="/images/projects/zendorbot-mini.png" alt="" />
-				</a>
+			<div class="body center">
+				{content.body}
 			</div>
-			<h4>ZendorBot</h4>
+			<div class="langlist center">
+				{content.stacks.map(stack => <b class={"icon icon-" + stack.tag} data-tippy-content={stack.text}/>)}
+			</div>
 		</div>
-		<div class="body center">
-			Простой игровой бот для ВК, изучал возможности PHP и NodeJS
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-		</div>
-	</div>
+
+		<hr/>
+	)}
 </Layout>

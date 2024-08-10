@@ -1,0 +1,107 @@
+{
+  "title": "Kalinin Danil",
+  "header": [
+    {"href": "/", "text": "Home"},
+    {"href": "/carier", "text": "Career"},
+    {"href": "/projects", "text": "Pet projects"}
+  ],
+  "pages": {
+    "index": {
+      "description": "Portfolio - Kalinin Danil Evgenievich | Skills, Projects, and Career",
+      "greeting": "\uD83D\uDC4B Hi, let's get acquainted",
+      "introduction": "My name is Danil, and I am 19 years old. I have been interested in programming and various sciences since I was 12. Since childhood, I've been drawn to technology and have always found pleasure in studying different devices and creating something new.",
+      "current_education": "I am currently in my fourth year of college, working in game development and simultaneously considering alternative job opportunities. However, I am actively striving to develop my professional skills. I am proficient in OOP and MVC (ModelViewController), and have experience working with Laravel and Symfony.",
+      "programming_skills": "I studied machine learning and implemented face and object recognition using Python. I have experience creating simple VK bots (photo processing, linking Python and PHP). Many personal projects I have led include games, chat bots, online stores, and hosting.",
+      "skills_title": "Programming Skills",
+      "skills": [
+        "TypeScript",
+        "Vue",
+        "React",
+        "Java",
+        "Python",
+        "PHP",
+        "C# (ASP.Net)"
+      ],
+      "additional_info": "I also worked with MySQL, PostgreSQL, and REST API. Thanks to my understanding of browser and protocol principles, I have skills in working with telnet and various development environments. I can test API systems and develop my own, understand networking principles, and work with version control systems like Git.",
+      "additional_info2": "I have always been attracted to mathematics and physics in school and college. I gladly participate in engineering projects, capable of creating software solutions and assembling electronic circuits."
+    },
+    "carier": {
+      "bodyTitle": "Career",
+      "description": "Learn more about my professional path, career growth notes, and unique skills. Throughout my career, I have worked in various positions at leading companies, gaining valuable experience and skills shared on this page.",
+      "content": [
+        {
+          "title": "Komitet",
+          "img": "/images/vc.png",
+          "link": "cmtt.ru",
+          "text": "While working at the 'Komitet' company, I participated in projects vc.ru and dtf.ru - prestigious information news portals offering current news and interesting content to their readers. In 2021, my activity at CMTT.RU was based on improving user experience: I was engaged in fixing old bugs, successfully migrating databases, and developing and implementing new functionalities to improve site performance. My work contributed to enhancing service quality and user satisfaction, maintaining a high level of professionalism and innovation in 'vc.ru' and 'dtf.ru' projects together with the 'Komitet' team.",
+          "dates": "2021 - 2022",
+          "stacks": [
+            {"tag": "js", "text": "JavaScript"},
+            {"tag": "php", "text": "PHP"}
+          ]
+        },
+        {
+          "title": "CryptoPirates",
+          "img": "/images/cryptopirates.jpg",
+          "link": "Crypto-Pirates.app",
+          "text": "As part of the CryptoPirates project, I played a key role in backend development using PHP, creating and optimizing personal account functionality, and integrating the Xsolla payment system for player convenience. My work also included setting up a secure payment system via bank cards, ensuring reliability and convenience for all participants in the CryptoPirates project. My goal was to create a reliable and efficient technical foundation that helped the project thrive in the world of cryptocurrencies and piracy!",
+          "dates": "2022 - 2023",
+          "stacks": [
+            {"tag": "js", "text": "JavaScript"},
+            {"tag": "php", "text": "PHP"},
+            {"tag": "nextjs", "text": "NextJS"}
+          ]
+        },
+        {
+          "title": "Botva.ru",
+          "img": "/images/botva.jpeg",
+          "link": "Botva.ru",
+          "text": "Since 2023, within the framework of the 'Botva' project, I have been bringing creativity and professionalism to the development of exciting events, rewriting legacy code for process optimization. My task is to find effective solutions for complex technical problems, allowing the 'Botva' project to continue evolving and improving. Ambitiously moving forward, I strive to create a unique gaming experience for our users and a bright future for the project!",
+          "dates": "2023",
+          "stacks": [
+            {"tag": "js", "text": "JavaScript"},
+            {"tag": "php", "text": "PHP"},
+            {"tag": "vue", "text": "Vue"}
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "bodyTitle": "Personal Projects",
+      "description": "My personal and commissioned projects, here are presented my best projects.",
+      "content": [
+        {
+          "title": "BloodyAssistant",
+          "body": "Voice assistant for smart home control, with a convenient web control panel and android application for management.",
+          "stacks": [
+            {"tag": "vue", "text": "Vue"},
+            {"tag": "js", "text": "JavaScript"},
+            {"tag": "php", "text": "PHP"},
+            {"tag": "flutter", "text": "Flutter"}
+          ]
+        },
+        {
+          "title": "VDSpace",
+          "body": "A virtual server rental service for small businesses, web hosting, and domain registration.",
+          "img": "/images/projects/vdspace.png",
+          "img_mini": "/images/projects/vdspace-mini.png",
+          "stacks": [
+            {"tag": "php", "text": "PHP"},
+            {"tag": "vue", "text": "Vue"},
+            {"tag": "js", "text": "JavaScript"}
+          ]
+        },
+        {
+          "title": "ZendorBot",
+          "body": "A simple gaming bot for VK, exploring the capabilities of PHP and NodeJS.",
+          "img": "/images/projects/zendorbot.png",
+          "img_mini": "/images/projects/zendorbot-mini.png",
+          "stacks": [
+            {"tag": "php", "text": "PHP"},
+            {"tag": "js", "text": "JavaScript"}
+          ]
+        }
+      ]
+    }
+  }
+}

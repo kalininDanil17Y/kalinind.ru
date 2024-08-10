@@ -65,4 +65,9 @@ const today = new Date();
 			}
 		});
 	})
+
+	function changeLanguage(locale) {
+		document.cookie = `locale=${locale}; path=/; SameSite=Lax`;
+		location.reload();
+	}
 </script>

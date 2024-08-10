@@ -1,89 +1,43 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import { SITE_TITLE } from '../consts';
+
+import { getLocale, getLocaleTexts } from '../utils/localize';
+const locale = getLocale(Astro.request);
+const title = (await getLocaleTexts(locale)).title
+const texts = (await getLocaleTexts(locale)).pages.carier;
 ---
 
 <Layout
-	title=`Карьера | ${SITE_TITLE}`
-	bodyTitle='Карьера'
+	title=`${texts.bodyTitle} | ${title}`
+	bodyTitle={texts.bodyTitle}
 	pubDate={new Date('January 14 2024')}
-	description=`Узнайте больше о моем профессиональном пути, заметках карьерного роста и уникальных навыках. Во время моей карьеры, я работал на различных позициях в ведущих компаниях, получив ценный опыт и навыки, которые делимся на данной странице.`
+	description={texts.description}
 >
-	<div class="container">
-		<div class="title">
 
-			<div class="imgbox gallery">
-				<a href="/images/vc.png">
-					<img src="/images/vc.png" alt="" />
-				</a>
+	{texts.content.map(content =>
+		<div class="container">
+			<div class="title">
+
+				<div class="imgbox gallery">
+					<a href={content.img}>
+						<img src={content.img} alt="" />
+					</a>
+				</div>
+
+				<p>{content.title}</p>
+				<div class="link">
+					<a href={"https://" + content.link} target="_blank">{content.link}</a>
+				</div>
+				<h5>{content.dates}</h5>
 			</div>
-
-			<p>Комитет</p>
-			<div class="link">
-				<a href="https://cmtt.ru" target="_blank">cmtt.ru</a>
+			<div class="body center">
+				{content.text}
 			</div>
-			<h5>2021 - 2022</h5>
-		</div>
-		<div class="body center">
-			В рамках работы в компании "Комитет" я участвовал в проектах vc.ru и dtf.ru - престижных информационных новостных порталов, предлагающих актуальные новости и интересный контент своим читателям. В 2021 году моя деятельность в CMTT.RU была основана на улучшении пользовательского опыта: я занимался оперативными исправлениями старых багов, проводил успешные миграции баз данных, а также разрабатывал и внедрял новые функциональности для улучшения работы сайтов. Моя работа способствовала повышению качества сервиса и удовлетворенности пользователей, поддерживая высокую планку профессионализма и инноваций в проектах "vc.ru" и "dtf.ru" вместе с командой "Комитет".
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-		</div>
-	</div>
-
-	<hr>
-
-	<div class="container">
-		<div class="title">
-
-			<div class="imgbox gallery">
-				<a href="/images/cryptopirates.jpg">
-					<img src="/images/cryptopirates.jpg" alt="" />
-				</a>
+			<div class="langlist center">
+				{content.stacks.map(stack => <b class={"icon icon-" + stack.tag} data-tippy-content={stack.text}/>)}
 			</div>
+		</div>
 
-			<p>CryptoPirates</p>
-			<div class="link">
-				<a href="https://crypto-pirates.app/" target="_blank">Crypto-Pirates.app</a>
-			</div>
-			<h5>2022 - 2023</h5>
-		</div>
-		<div class="body center">
-			В рамках проекта CryptoPirates я занимал ключевую роль в разработке Backend'а на языке PHP, создании и оптимизации функционала личного кабинета, а также интеграции платежной системы Xsolla для удобстваа игроков. Моя работа также включала в себя настройку безопасной системы оплаты через банковские карты, обеспечивая надежность и удобство для всех участников проекта CryptoPirates. Моя цель заключалась в создании надежного и эффективного технического фундамента, который помогал проекту процветать в мире криптовалют и пиратства!
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-			<b class="icon icon-nextjs" data-tippy-content="NextJS"/>
-		</div>
-	</div>
-
-	<hr>
-
-	<div class="container">
-		<div class="title">
-
-			<div class="imgbox gallery">
-				<a href="/images/botva.jpeg">
-					<img src="/images/botva.jpeg" alt="" />
-				</a>
-			</div>
-
-			<p>Botva.ru</p>
-			<div class="link">
-				<a href="https://botva.ru/" target="_blank">Botva.ru</a>
-			</div>
-			<h5>2023</h5>
-		</div>
-		<div class="body center">
-			С 2023 года, в рамках проекта "Ботва" я привношу креативность и профессионализм, занимаясь разработкой захватывающих ивентов, переписыванием наследственного кода для оптимизации процессов. Моей задачей является поиск эффективных решений для сложных технических задач, что позволяет проекту "Ботва" продолжать развиваться и совершенствоваться. Амбициозно двигаясь вперед, я стремлюсь к созданию уникального игрового опыта для наших пользователей и красивого будущего для проекта!
-		</div>
-		<div class="langlist center">
-			<b class="icon icon-js" data-tippy-content="JavaScript"/>
-			<b class="icon icon-php" data-tippy-content="PHP"/>
-			<b class="icon icon-vue" data-tippy-content="Vue"/>
-		</div>
-	</div>
+		<hr>
+	)}
 </Layout>

@@ -4,11 +4,14 @@ interface Props {
 }
 
 const { date } = Astro.props;
+
+import { getLocale } from '../utils/localize';
+let locale = getLocale(Astro.request);
 ---
 
 <time datetime={date.toISOString()}>
 	{
-		date.toLocaleDateString('ru-ru', {
+		date.toLocaleDateString(`${locale}-${locale}`, {
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',
