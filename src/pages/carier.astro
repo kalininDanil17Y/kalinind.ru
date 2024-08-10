@@ -3,8 +3,10 @@ import Layout from '../layouts/BlogPost.astro';
 
 import { getLocale, getLocaleTexts } from '../utils/localize';
 const locale = getLocale(Astro.request);
-const title = (await getLocaleTexts(locale)).title
-const texts = (await getLocaleTexts(locale)).pages.carier;
+
+const localeTexts = await getLocaleTexts(locale)
+const title = localeTexts.title;
+const texts = localeTexts.pages.carier;
 ---
 
 <Layout

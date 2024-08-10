@@ -3,8 +3,9 @@ import HeaderLink from './HeaderLink.astro';
 
 import { getLocale, getLocaleTexts } from '../utils/localize';
 let locale = getLocale(Astro.request);
-const title = (await getLocaleTexts(locale)).title
-const header = (await getLocaleTexts(locale)).header;
+const localeTexts = await getLocaleTexts(locale)
+const title = localeTexts.title;
+const header = localeTexts.header;
 ---
 
 <header>

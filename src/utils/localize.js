@@ -21,7 +21,7 @@ export const getLocaleTexts = async (locale) => {
         }
     } catch (error) {
         console.error('Error loading localization file', error);
-        return null;
+        return {};
     }
 };
 
