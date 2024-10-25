@@ -61,7 +61,7 @@ const header = localeTexts.header;
 	header {
 		margin: 0;
 		padding: 0 1em;
-		//background: white;
+		background: rgba(255, 255, 255, .6);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 
 		position: relative;
@@ -116,6 +116,23 @@ const header = localeTexts.header;
 		location.reload();
 	}
 
+	// Функции для сохранения и загрузки позиций точек
+	function saveDotPositions(points) {
+		const dots = points.map(point => ({
+			x: point.x,
+			y: point.y,
+			vx: point.vx,
+			vy: point.vy
+		}));
+		localStorage.setItem('dotPositions', JSON.stringify(dots));
+	}
+
+	function loadDotPositions() {
+		const storedDots = localStorage.getItem('dotPositions');
+		return storedDots ? JSON.parse(storedDots) : [];
+	}
+
+	// Загрузка сохраненных позиций или создание новых точек
 	document.addEventListener("DOMContentLoaded", () => {
 		const canvas = document.getElementById("header-canvas");
 		const ctx = canvas.getContext("2d");
@@ -132,11 +149,11 @@ const header = localeTexts.header;
 		window.addEventListener('resize', resizeCanvas);
 
 		class Point {
-			constructor() {
-				this.x = Math.random() * canvas.width;
-				this.y = Math.random() * canvas.height;
-				this.vx = (Math.random() - 0.5);
-				this.vy = (Math.random() - 0.5);
+			constructor(x = Math.random() * canvas.width, y = Math.random() * canvas.height, vx = (Math.random() - 0.5), vy = (Math.random() - 0.5)) {
+				this.x = x;
+				this.y = y;
+				this.vx = vx;
+				this.vy = vy;
 			}
 
 			update() {
@@ -149,16 +166,21 @@ const header = localeTexts.header;
 			}
 		}
 
-		// Создание точек
-		for (let i = 0; i < pointCount; i++) {
-			points.push(new Point());
+		// Загрузка точек из localStorage или создание новых
+		const savedDots = loadDotPositions();
+		if (savedDots.length > 0) {
+			savedDots.forEach(dot => points.push(new Point(dot.x, dot.y, dot.vx, dot.vy)));
+		} else {
+			for (let i = 0; i < pointCount; i++) {
+				points.push(new Point());
+			}
 		}
 
 		function draw() {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 			// Рисование точек
-			points.forEach((point) => {
+			points.forEach(point => {
 				ctx.beginPath();
 				ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
 				ctx.fillStyle = "black";
@@ -183,9 +205,12 @@ const header = localeTexts.header;
 			}
 
 			// Обновление позиций точек
-			points.forEach((point) => point.update());
+			points.forEach(point => point.update());
 			requestAnimationFrame(draw);
 		}
+
+		// Сохранение позиций при уходе со страницы
+		window.addEventListener('beforeunload', () => saveDotPositions(points));
 
 		draw();
 	});
