@@ -1,3 +1,5 @@
+#docker hub:  danilo9/kalinind.ru
+
 # Используем базовый образ Node.js версии 18
 FROM node:18-alpine AS build
 # Установка рабочей директории
