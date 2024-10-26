@@ -71,6 +71,8 @@ const header = localeTexts.header;
 	h2 {
 		margin: 0;
 		font-size: 1em;
+		display: flex;
+		justify-content: center;
 	}
 
 	h2 a,
@@ -83,10 +85,11 @@ const header = localeTexts.header;
 		justify-content: space-between;
 	}
 	nav a {
-		padding: 1em 0.5em;
+		padding: .65em .65em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		font-size: clamp(0.1rem, 1vw + 0.5rem, 1.1rem);
 	}
 	nav a.active {
 		text-decoration: none;
