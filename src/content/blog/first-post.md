@@ -1,17 +1,42 @@
 ---
-title: 'First post'
-bodyTitle: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+title: 'Мой опыт участия в "Чемпионате высоких технологий": Второе место в России'
+bodyTitle: 'Мой опыт участия в "Чемпионате высоких технологий": Второе место в России'
+description: 'В сентябре 2023 года я принял участие в "Чемпионате высоких технологий" в Великом Новгороде, заняв второе место в направлении "Цифровые двойники". В посте я делюсь своим опытом создания 3D-моделей и архитектурных чертежей, использованием Blender, Agisoft Metashape и Renga, а также рассказываю о встрече с Владимиром Путиным.'
+pubDate: 'Nov 15 2024'
+heroImage: 'https://pro.firpo.ru/netcat_files/312/481/dpHC2kcixoI.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+В сентябре 2023 года я принял участие в "Чемпионате высоких технологий" в Великом Новгороде, заняв второе место в направлении "Цифровые двойники". В посте я делюсь своим опытом создания 3D-моделей и архитектурных чертежей, использованием Blender, Agisoft Metashape и Renga, а также рассказываю о встрече с Владимиром Путиным. [Подробнее о посещении Путина](https://novvedomosti.ru/news/education/92305/). [Список финалистов](https://pro.firpo.ru/media/news/v-velikom-novgorode-zavershilsya-pervyy-chempionat-vysokih-tehnologiy.html).
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+По большей части этот пост сделан для тестирования, полной настройки, и проверки внутренних модулей сайта.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+## Процесс создания цифровых двойников
+Наша работа была сосредоточена на создании цифровых двойников зданий и городов в масштабе один к одному, что представляло собой сложный и многоступенчатый процесс. Мы использовали передовые инструменты и программное обеспечение для достижения максимально точных результатов.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+### Основные инструменты
+1. **Agisoft Metashape** – для создания высококачественных 3D-сканов зданий и территорий.
+2. **Blender** – для удаления артефактов и оптимизации геометрии моделей.
+3. **Renga** – для разработки архитектурных чертежей.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+## Использование Agisoft Metashape
+Сначала мы применяли Agisoft Metashape для создания 3D-сканов зданий и территорий. Этот инструмент позволил нам формировать подробные и реалистичные 3D-копии на основе фотограмметрии. Однако полученные модели нуждались в доработке, чтобы удалить артефакты и дефекты.
+
+## Оптимизация моделей в Blender
+Чтобы сделать наши 3D-модели более реалистичными и точными, мы обратились к Blender. В этой программе мы:
+- Устраняли артефакты.
+- Оптимизировали геометрию моделей.
+- Работали над деталями для достижения естественного внешнего вида.
+
+## Создание чертежей в Renga
+После подготовки 3D-моделей мы использовали Renga для создания детальных архитектурных чертежей. Этот этап включал:
+- Перевод моделей в планы и схемы.
+- Подготовку чертежей для проектирования и городского планирования.
+
+## Итог и признание
+Результатом наших совместных усилий стало высокое признание – мы заняли второе место по всей России. Это достижение стало важной вехой в моей карьере и подчеркнуло мои профессиональные навыки в области архитектуры и урбанистики, а также стремление применять современные технологии для улучшения качества жизни в городах.
+
+## Личное значение победы
+Я искренне горжусь этой победой и считаю ее важным этапом в своем профессиональном развитии. Архитектура для меня всегда была увлечением, которое я изучал как хобби и в котором накопил значительные знания. Однако моё основное направление – это программирование. Я занимаюсь разработкой веб-сайтов, Android-приложений и настольных программ. Этот успех мотивирует меня к дальнейшему совершенствованию как в архитектуре, так и в моих ключевых профессиональных навыках в области разработки.
+
+## Встреча с Владимиром Путиным
+Ещё одним знаменательным моментом стало наше участие во встрече с Президентом России Владимиром Владимировичем Путиным. Финалисты, включая меня, получили возможность лично пообщаться с ним. Он поздравил нас с достижениями, выразил поддержку нашим инициативам, и мы смогли задать ему вопросы. Это был незабываемый опыт, который оставил неизгладимое впечатление и вдохновил меня на дальнейшие успехи.

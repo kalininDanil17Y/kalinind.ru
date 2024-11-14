@@ -41,6 +41,18 @@ const { title, bodyTitle, description, pubDate, updatedDate, heroImage } = Astro
 							<hr />
 						</div>
 						<slot />
+
+						<div class="date">
+							<FormattedDate date={pubDate} />
+							{
+								updatedDate && (
+									<div class="last-updated-on">
+										Последнее обновление <FormattedDate date={updatedDate} />
+									</div>
+								)
+							}
+						</div>
+
 					</div>
 				</article>
 			</main>
