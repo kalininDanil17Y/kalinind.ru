@@ -141,9 +141,9 @@ const header = localeTexts.header;
 	}
 
 	function loadDotPositions() {
-		//const storedDots = localStorage.getItem('dotPositions');
-		//return storedDots ? JSON.parse(storedDots) : [];
-		return [];
+		const storedDots = localStorage.getItem('dotPositions');
+		return storedDots ? JSON.parse(storedDots) : [];
+		//return [];
 	}
 
 	// Загрузка сохраненных позиций или создание новых точек
