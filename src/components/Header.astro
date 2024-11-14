@@ -64,8 +64,10 @@ const header = localeTexts.header;
 		background: rgba(255, 255, 255, .6);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 
-		position: relative;
+		position: sticky;
+		top: 0;
 		overflow: hidden;
+		background: white;
 	}
 
 	h2 {
@@ -118,6 +120,7 @@ const header = localeTexts.header;
 	}
 </style>
 <script type="application/javascript" is:inline>
+	// @ts-ignore
 	function changeLanguage(locale) {
 		document.cookie = `locale=${locale}; path=/; SameSite=Lax`;
 		location.reload();

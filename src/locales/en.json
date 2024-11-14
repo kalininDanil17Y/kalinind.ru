@@ -3,7 +3,8 @@
   "header": [
     {"href": "/", "text": "Home"},
     {"href": "/carier", "text": "Career"},
-    {"href": "/projects", "text": "Pet projects"}
+    {"href": "/projects", "text": "Projects"},
+    {"href": "/blog", "text":  "Blog"}
   ],
   "pages": {
     "index": {
@@ -72,6 +73,16 @@
       "description": "My personal and commissioned projects, here are presented my best projects.",
       "content": [
         {
+          "title": "SocketSecureVPN",
+          "body": "\"SocketSecure VPN\" is an Android app using V2Ray and WebSockets for secure, fast, and unlimited VPN access, data protection, and bypassing restrictions.",
+          "stacks": [
+            {"tag": "react", "text": "React Native"},
+            {"tag": "js", "text": "JavaScript"},
+            {"tag": "php", "text": "PHP"},
+            {"tag": "java", "text": "Java"}
+          ]
+        },
+        {
           "title": "BloodyAssistant",
           "body": "Voice assistant for smart home control, with a convenient web control panel and android application for management.",
           "stacks": [
@@ -98,8 +109,7 @@
           "img": "/images/projects/zendorbot.png",
           "img_mini": "/images/projects/zendorbot-mini.png",
           "stacks": [
-            {"tag": "php", "text": "PHP"},
-            {"tag": "js", "text": "JavaScript"}
+            {"tag": "php", "text": "PHP"}
           ]
         }
       ]
