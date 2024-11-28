@@ -25,4 +25,4 @@ COPY --from=build /app .
 # Экспонируем порт 8787
 EXPOSE 8787
 # Запускаем сервер
-CMD ["node", "-r", "dotenv/config", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]
