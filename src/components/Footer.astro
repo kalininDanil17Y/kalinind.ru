@@ -4,6 +4,7 @@ const today = new Date();
 import { getLocale } from '../utils/localize';
 let locale = getLocale(Astro.request);
 
+console.log("Environment Variables:", process.env);
 const podName = process.env.POD_NAME || '';
 ---
 
