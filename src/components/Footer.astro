@@ -4,7 +4,7 @@ const today = new Date();
 import { getLocale } from '../utils/localize';
 let locale = getLocale(Astro.request);
 
-const podName = import.meta.env.POD_NAME;
+const podName = process.env.POD_NAME || '';
 ---
 
 <footer>
