@@ -12,6 +12,7 @@ RUN npm install
 COPY . .
 # Сборка проекта
 RUN npm run build
+
 # Используем базовый образ Node.js версии 18 для финальной сборки
 FROM node:18-alpine AS run
 # Установка рабочей директории
@@ -21,7 +22,7 @@ ENV PORT=8787
 ENV HOST=0.0.0.0
 # Копируем собранные артефакты из фазы сборки
 COPY --from=build /app .
-# Экспонируем порт 8090
+# Экспонируем порт 8787
 EXPOSE 8787
 # Запускаем сервер
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "-r", "dotenv/config", "./dist/server/entry.mjs"]
