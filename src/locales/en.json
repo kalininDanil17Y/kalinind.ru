@@ -146,20 +146,6 @@
         "demo": "#"
       },
       {
-        "name": "BloodyAssistant",
-        "description": "Voice assistant for smart home with web panel and mobile app",
-        "image": "/images/projects/assistant.jpg",
-        "technologies": ["Vue.js", "PHP", "Flutter", "WebRTC"],
-        "features": [
-          "Voice control",
-          "Web control panel",
-          "Android application",
-          "IoT integration"
-        ],
-        "github": "#",
-        "demo": "#"
-      },
-      {
         "name": "VDSpace",
         "description": "Virtual server rental service for small businesses",
         "image": "/images/projects/vdspace.png",
@@ -177,7 +163,7 @@
         "name": "ZendorBot",
         "description": "Gaming bot for VKontakte with advanced features",
         "image": "/images/projects/zendorbot.png",
-        "technologies": ["PHP", "Node.js", "VK API"],
+        "technologies": ["PHP", "VK API"],
         "features": [
           "Game mechanics",
           "Achievement system",
