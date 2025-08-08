@@ -6,57 +6,875 @@ import Loader from '../components/Loader.astro';
 
 // Для статической генерации используем русский язык по умолчанию
 const localeTexts = await import('../locales/ru.json');
-const title = localeTexts.title;
-const texts = localeTexts.pages.index;
+const data = localeTexts;
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
-		<BaseHead title={title} description={texts.description} />
+		<BaseHead title={data.title} description="Fullstack разработчик | Создаю современные веб-приложения" />
 	</head>
 	<body>
 		<Loader />
 		
 		<div id="main-content" class="main-content hidden">
 			<Header />
-			<main>
-				<h3 data-localize="greeting">{texts.greeting}</h3>
-				<p data-localize="introduction">{texts.introduction}</p>
-				<p data-localize="current_education">{texts.current_education}</p>
-				<p data-localize="programming_skills">{texts.programming_skills}</p>
-				<h4 data-localize="skills_title">{texts.skills_title}</h4>
-				<ul data-localize="skills-list">
-					{texts.skills.map((skill: any) => <li>{skill}</li>)}
-				</ul>
-				<p data-localize="additional_info">{texts.additional_info}</p>
-				<p data-localize="additional_info2">{texts.additional_info2}</p>
-			</main>
+			
+			<!-- Hero Section -->
+			<section id="hero" class="hero-section">
+				<div class="hero-container">
+					<div class="hero-content">
+						<h1 class="hero-greeting" data-localize="hero.greeting">{data.hero.greeting}</h1>
+						<h2 class="hero-title" data-localize="hero.title">{data.hero.title}</h2>
+						<p class="hero-subtitle" data-localize="hero.subtitle">{data.hero.subtitle}</p>
+						<a href="#about" class="hero-cta" data-localize="hero.cta">{data.hero.cta}</a>
+					</div>
+					<div class="hero-visual">
+						<div class="floating-elements">
+							<div class="floating-element" style="animation-delay: 0s;">
+								<iconify-icon icon="devicon:javascript" width="40"></iconify-icon>
+							</div>
+							<div class="floating-element" style="animation-delay: 0.5s;">
+								<iconify-icon icon="devicon:php" width="40"></iconify-icon>
+							</div>
+							<div class="floating-element" style="animation-delay: 1s;">
+								<iconify-icon icon="devicon:vuejs" width="40"></iconify-icon>
+							</div>
+							<div class="floating-element" style="animation-delay: 1.5s;">
+								<iconify-icon icon="devicon:react" width="40"></iconify-icon>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- About Section -->
+			<section id="about" class="about-section">
+				<div class="container">
+					<h2 class="section-title" data-localize="about.title">{data.about.title}</h2>
+					<div class="about-content">
+						<div class="about-text">
+							<p class="about-description" data-localize="about.description">{data.about.description}</p>
+							<div class="about-highlights" data-localize="about.highlights">
+								{data.about.highlights.map((highlight: string) => 
+									<div class="highlight-item">
+										<iconify-icon icon="mdi:check-circle" width="20"></iconify-icon>
+										<span>{highlight}</span>
+									</div>
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Skills Section -->
+			<section id="skills" class="skills-section">
+				<div class="container">
+					<h2 class="section-title" data-localize="skills.title">{data.skills.title}</h2>
+					<div class="skills-categories">
+						{Object.entries(data.skills.categories).map(([key, category]: [string, any]) => 
+							<div class="skill-category">
+								<h3 class="category-title">{category.title}</h3>
+								<div class="skills-grid">
+									{category.items.map((skill: any) => 
+										<div class="skill-card" data-tooltip={`${skill.name} - ${skill.level}%`}>
+											<div class="skill-icon">
+												<iconify-icon icon={skill.icon} width="32"></iconify-icon>
+											</div>
+											<div class="skill-info">
+												<h4 class="skill-name">{skill.name}</h4>
+												<div class="skill-level">
+													<div class="level-bar">
+														<div class="level-fill" style={`width: ${skill.level}%`}></div>
+													</div>
+													<span class="level-text">{skill.level}%</span>
+												</div>
+											</div>
+										</div>
+									)}
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+			</section>
+
+			<!-- Experience Section -->
+			<section id="experience" class="experience-section">
+				<div class="container">
+					<h2 class="section-title" data-localize="experience.title">{data.experience.title}</h2>
+					<div class="experience-timeline">
+						{data.experience.items.map((item: any, index: number) => 
+							<div class="timeline-item">
+								<div class="timeline-marker"></div>
+								<div class="experience-card">
+									<div class="card-header">
+										<div class="company-info">
+											<img src={item.logo} alt={item.company} class="company-logo" />
+											<div>
+												<h3 class="company-name">{item.company}</h3>
+												<p class="position">{item.position}</p>
+												<p class="period">{item.period}</p>
+											</div>
+										</div>
+										<a href={`https://${item.website}`} target="_blank" class="website-link">
+											<iconify-icon icon="mdi:external-link" width="20"></iconify-icon>
+										</a>
+									</div>
+									<p class="description">{item.description}</p>
+									<div class="technologies">
+										{item.technologies.map((tech: string) => 
+											<span class="tech-tag">{tech}</span>
+										)}
+									</div>
+									<div class="achievements">
+										{item.achievements.map((achievement: string) => 
+											<div class="achievement-item">
+												<iconify-icon icon="mdi:star" width="16"></iconify-icon>
+												<span>{achievement}</span>
+											</div>
+										)}
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+			</section>
+
+			<!-- Projects Section -->
+			<section id="projects" class="projects-section">
+				<div class="container">
+					<h2 class="section-title" data-localize="projects.title">{data.projects.title}</h2>
+					<div class="projects-grid">
+						{data.projects.items.map((project: any) => 
+							<div class="project-card">
+								<div class="project-image">
+									<img src={project.image} alt={project.name} />
+									<div class="project-overlay">
+										<div class="project-links">
+											<a href={project.github} class="project-link">
+												<iconify-icon icon="mdi:github" width="24"></iconify-icon>
+											</a>
+											<a href={project.demo} class="project-link">
+												<iconify-icon icon="mdi:external-link" width="24"></iconify-icon>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="project-content">
+									<h3 class="project-name">{project.name}</h3>
+									<p class="project-description">{project.description}</p>
+									<div class="project-technologies">
+										{project.technologies.map((tech: string) => 
+											<span class="tech-tag">{tech}</span>
+										)}
+									</div>
+									<div class="project-features">
+										{project.features.map((feature: string) => 
+											<div class="feature-item">
+												<iconify-icon icon="mdi:check" width="16"></iconify-icon>
+												<span>{feature}</span>
+											</div>
+										)}
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section id="contact" class="contact-section">
+				<div class="container">
+					<div class="contact-content">
+						<h2 class="section-title" data-localize="contact.title">{data.contact.title}</h2>
+						<p class="contact-subtitle" data-localize="contact.subtitle">{data.contact.subtitle}</p>
+						
+						<div class="contact-info">
+							<div class="email-block">
+								<div class="email-wrapper">
+									<iconify-icon icon="mdi:email" width="24"></iconify-icon>
+									<span class="email-text blurred" id="email-text">{data.contact.email}</span>
+								</div>
+								<button class="email-reveal-btn" id="email-reveal-btn">
+									<iconify-icon icon="mdi:eye" width="16"></iconify-icon>
+									Показать email
+								</button>
+							</div>
+							
+							<div class="social-links">
+								{data.contact.social.map((social: any) => 
+									<a href={social.url} target="_blank" class="social-link" style={`--social-color: ${social.color}`}>
+										<iconify-icon icon={social.icon} width="24"></iconify-icon>
+										<span>{social.name}</span>
+									</a>
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<Footer />
 		</div>
 		
 		<script>
 			import '../utils/client-localize.js';
 		</script>
-
-		<style>
-			.main-content.hidden {
-				opacity: 0;
-				visibility: hidden;
-			}
-
-			.main-content {
-				opacity: 1;
-				visibility: visible;
-				transition: opacity 0.3s ease, visibility 0.3s ease;
-			}
-		</style>
-
-		<noscript>
-			<style>
-				#page-loader { display: none !important; }
-				.main-content.hidden { opacity: 1 !important; visibility: visible !important; }
-			</style>
-		</noscript>
 	</body>
 </html>
+
+<style>
+	/* Main Layout */
+	.main-content.hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.main-content {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: rgb(var(--black));
+		position: relative;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 4px;
+		background: var(--accent);
+		border-radius: 2px;
+	}
+
+	/* Hero Section */
+	.hero-section {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding-top: 80px;
+		background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.05) 0%, transparent 50%);
+	}
+
+	.hero-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.hero-greeting {
+		font-size: 1.5rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 500;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		color: rgb(var(--gray));
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+
+	.hero-cta {
+		display: inline-flex;
+		align-items: center;
+		padding: 1rem 2rem;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 12px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3);
+	}
+
+	.hero-cta:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.4);
+	}
+
+	.floating-elements {
+		position: relative;
+		height: 400px;
+	}
+
+	.floating-element {
+		position: absolute;
+		padding: 1rem;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.floating-element:nth-child(1) { top: 20%; left: 10%; }
+	.floating-element:nth-child(2) { top: 60%; left: 60%; }
+	.floating-element:nth-child(3) { top: 30%; right: 20%; }
+	.floating-element:nth-child(4) { bottom: 20%; left: 40%; }
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0px) rotate(0deg); }
+		50% { transform: translateY(-20px) rotate(5deg); }
+	}
+
+	/* About Section */
+	.about-section {
+		padding: 6rem 0;
+		background: rgba(var(--gray-light), 0.3);
+	}
+
+	.about-content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.about-description {
+		font-size: 1.2rem;
+		line-height: 1.8;
+		margin-bottom: 2rem;
+		color: rgb(var(--gray));
+	}
+
+	.about-highlights {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.highlight-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem;
+		background: rgba(var(--accent-rgb), 0.1);
+		border-radius: 8px;
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	/* Skills Section */
+	.skills-section {
+		padding: 6rem 0;
+	}
+
+	.skills-categories {
+		display: grid;
+		gap: 3rem;
+	}
+
+	.skill-category {
+		background: rgba(var(--gray-light), 0.1);
+		padding: 2rem;
+		border-radius: 16px;
+		border: 1px solid rgba(var(--gray-light), 0.2);
+	}
+
+	.category-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		color: rgb(var(--black));
+		text-align: center;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	.skill-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+		background: var(--background);
+		border-radius: 12px;
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	.skill-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(var(--gray), 0.15);
+		border-color: var(--accent);
+	}
+
+	.skill-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		background: rgba(var(--accent-rgb), 0.1);
+		border-radius: 8px;
+	}
+
+	.skill-info {
+		flex: 1;
+	}
+
+	.skill-name {
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--black));
+	}
+
+	.skill-level {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.level-bar {
+		flex: 1;
+		height: 6px;
+		background: rgba(var(--gray-light), 0.3);
+		border-radius: 3px;
+		overflow: hidden;
+	}
+
+	.level-fill {
+		height: 100%;
+		background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+		border-radius: 3px;
+		transition: width 1s ease;
+	}
+
+	.level-text {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--accent);
+	}
+
+	/* Experience Section */
+	.experience-section {
+		padding: 6rem 0;
+		background: rgba(var(--gray-light), 0.3);
+	}
+
+	.experience-timeline {
+		position: relative;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.experience-timeline::before {
+		content: '';
+		position: absolute;
+		left: 20px;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background: var(--accent);
+	}
+
+	.timeline-item {
+		position: relative;
+		margin-bottom: 2rem;
+		padding-left: 60px;
+	}
+
+	.timeline-marker {
+		position: absolute;
+		left: 11px;
+		top: 1rem;
+		width: 18px;
+		height: 18px;
+		background: var(--accent);
+		border-radius: 50%;
+		border: 4px solid var(--background);
+	}
+
+	.experience-card {
+		background: var(--background);
+		padding: 2rem;
+		border-radius: 16px;
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		transition: all 0.3s ease;
+	}
+
+	.experience-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(var(--gray), 0.15);
+	}
+
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+	}
+
+	.company-info {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.company-logo {
+		width: 50px;
+		height: 50px;
+		border-radius: 8px;
+		object-fit: cover;
+	}
+
+	.company-name {
+		font-size: 1.3rem;
+		font-weight: 600;
+		color: rgb(var(--black));
+		margin-bottom: 0.2rem;
+	}
+
+	.position {
+		color: var(--accent);
+		font-weight: 500;
+		margin-bottom: 0.2rem;
+	}
+
+	.period {
+		color: rgb(var(--gray));
+		font-size: 0.9rem;
+	}
+
+	.description {
+		line-height: 1.6;
+		margin-bottom: 1rem;
+		color: rgb(var(--gray));
+	}
+
+	.technologies {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tech-tag {
+		padding: 0.3rem 0.8rem;
+		background: rgba(var(--accent-rgb), 0.1);
+		color: var(--accent);
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+
+	.achievements {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.achievement-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: rgb(var(--gray));
+		font-size: 0.9rem;
+	}
+
+	/* Projects Section */
+	.projects-section {
+		padding: 6rem 0;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	.project-card {
+		background: var(--background);
+		border-radius: 16px;
+		overflow: hidden;
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		transition: all 0.3s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 35px rgba(var(--gray), 0.15);
+	}
+
+	.project-image {
+		position: relative;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.project-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.project-card:hover .project-image img {
+		transform: scale(1.05);
+	}
+
+	.project-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.project-card:hover .project-overlay {
+		opacity: 1;
+	}
+
+	.project-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.project-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.project-link:hover {
+		background: var(--accent);
+		transform: scale(1.1);
+	}
+
+	.project-content {
+		padding: 1.5rem;
+	}
+
+	.project-name {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--black));
+	}
+
+	.project-description {
+		color: rgb(var(--gray));
+		line-height: 1.6;
+		margin-bottom: 1rem;
+	}
+
+	.project-technologies {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.project-features {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	.feature-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: rgb(var(--gray));
+		font-size: 0.9rem;
+	}
+
+	/* Contact Section */
+	.contact-section {
+		padding: 6rem 0;
+		background: rgba(var(--gray-light), 0.3);
+	}
+
+	.contact-content {
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.contact-subtitle {
+		font-size: 1.1rem;
+		color: rgb(var(--gray));
+		margin-bottom: 3rem;
+	}
+
+	.email-block {
+		background: var(--background);
+		padding: 2rem;
+		border-radius: 16px;
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		margin-bottom: 2rem;
+	}
+
+	.email-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.email-text {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: rgb(var(--gray-dark));
+		transition: all 0.3s ease;
+	}
+
+	.email-text.blurred {
+		filter: blur(5px);
+		user-select: none;
+	}
+
+	.email-reveal-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.8rem 1.5rem;
+		background: var(--accent);
+		color: white;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: all 0.3s ease;
+		margin: 0 auto;
+	}
+
+	.email-reveal-btn:hover {
+		background: var(--accent-dark);
+		transform: translateY(-1px);
+	}
+
+	.email-reveal-btn.revealed {
+		background: rgba(var(--accent-rgb), 0.1);
+		color: var(--accent);
+	}
+
+	.social-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		padding: 1rem;
+		background: var(--background);
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		border-radius: 12px;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+		transition: all 0.3s ease;
+		justify-content: center;
+	}
+
+	.social-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(var(--gray), 0.15);
+		border-color: var(--social-color);
+		color: var(--social-color);
+	}
+
+	/* Mobile Responsive */
+	@media (max-width: 768px) {
+		.hero-container {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.skills-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.timeline-item {
+			padding-left: 40px;
+		}
+
+		.company-info {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.social-links {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<noscript>
+	<style>
+		#page-loader { display: none !important; }
+		.main-content.hidden { opacity: 1 !important; visibility: visible !important; }
+	</style>
+</noscript>
