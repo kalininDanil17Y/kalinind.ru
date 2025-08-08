@@ -14,22 +14,15 @@ const header = localeTexts.header;
 				<a href={link.href}>{link.text}</a>
 			)}
 		</div>
-		<div class="social-links">
-			<a href="https://www.linkedin.com/in/kalinind/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-				<iconify-icon icon="mdi:linkedin" width="32" height="32"></iconify-icon>
-			</a>
-			<a href="https://kalinindanil17y.t.me/" target="_blank" title="Telegram" aria-label="Telegram">
-				<iconify-icon icon="mdi:telegram" width="32" height="32"></iconify-icon>
-			</a>
-			<a href="https://www.facebook.com/profile.php?id=100018704474057" target="_blank" title="Facebook" aria-label="Facebook">
-				<iconify-icon icon="mdi:facebook" width="32" height="32"></iconify-icon>
-			</a>
-			<a href="https://github.com/kalininDanil17Y" target="_blank" title="GitHub" aria-label="GitHub">
-				<iconify-icon icon="mdi:github" width="32" height="32"></iconify-icon>
-			</a>
-			<a id="lang-toggle" title="Toggle Language" aria-label="Toggle Language">
-				<iconify-icon icon="mdi:translate" width="32" height="32"></iconify-icon>
-			</a>
+		<div class="controls">
+			<button id="theme-toggle" class="control-button" title="Toggle Theme" aria-label="Toggle Theme">
+				<iconify-icon icon="mdi:theme-light-dark" width="20" height="20"></iconify-icon>
+				<span class="button-text">Theme</span>
+			</button>
+			<button id="lang-toggle" class="control-button" title="Toggle Language" aria-label="Toggle Language">
+				<iconify-icon icon="mdi:translate" width="20" height="20"></iconify-icon>
+				<span class="button-text" id="lang-text">RU</span>
+			</button>
 		</div>
 	</nav>
 </header>
@@ -44,6 +37,12 @@ const header = localeTexts.header;
 		top: 0;
 		overflow: hidden;
 		background: white;
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	:global(body.dark-theme) header {
+		background: rgba(30, 30, 30, 0.95);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 20%);
 	}
 
 	h2 {
@@ -56,6 +55,7 @@ const header = localeTexts.header;
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
+		transition: color 0.3s ease;
 	}
 	
 	nav {
@@ -65,6 +65,11 @@ const header = localeTexts.header;
 		position: relative;
 		z-index: 1;
 		background: rgba(255, 255, 255, 0.6);
+		transition: background-color 0.3s ease;
+	}
+
+	:global(body.dark-theme) nav {
+		background: rgba(30, 30, 30, 0.6);
 	}
 	
 	nav a {
@@ -73,6 +78,11 @@ const header = localeTexts.header;
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 		font-size: clamp(0.1rem, 1vw + 0.5rem, 1.1rem);
+		transition: color 0.3s ease, border-color 0.3s ease;
+	}
+
+	:global(body.dark-theme) nav a {
+		color: #e0e0e0;
 	}
 	
 	nav a.active {
@@ -80,27 +90,60 @@ const header = localeTexts.header;
 		border-bottom-color: var(--accent);
 	}
 	
-	.social-links,
-	.social-links a {
+	.controls {
 		display: flex;
 		align-items: center;
+		gap: 0.5rem;
 	}
 
-	.social-links a {
-		transition: opacity 0.2s ease;
-	}
-
-	.social-links a:hover {
-		opacity: 0.7;
-	}
-
-	#lang-toggle {
+	.control-button {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: rgba(var(--accent), 0.1);
+		border: 1px solid rgba(var(--accent), 0.3);
+		border-radius: 6px;
+		color: var(--accent);
 		cursor: pointer;
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		text-decoration: none;
+	}
+
+	.control-button:hover {
+		background: rgba(var(--accent), 0.2);
+		border-color: rgba(var(--accent), 0.5);
+		transform: translateY(-1px);
+	}
+
+	.control-button:active {
+		transform: translateY(0);
+	}
+
+	:global(body.dark-theme) .control-button {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.3);
+		color: #e0e0e0;
+	}
+
+	:global(body.dark-theme) .control-button:hover {
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+
+	.button-text {
+		font-family: inherit;
 	}
 	
 	@media (max-width: 720px) {
-		.social-links {
+		.button-text {
 			display: none;
+		}
+		
+		.control-button {
+			padding: 0.5rem;
 		}
 	}
 
@@ -121,6 +164,42 @@ const header = localeTexts.header;
 </script>
 
 <script type="application/javascript" is:inline>
+	// Theme management
+	function initTheme() {
+		// Check for saved theme or default to light
+		const savedTheme = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+		
+		document.body.classList.toggle('dark-theme', theme === 'dark');
+		updateThemeIcon(theme);
+	}
+
+	function toggleTheme() {
+		const isDark = document.body.classList.contains('dark-theme');
+		const newTheme = isDark ? 'light' : 'dark';
+		
+		document.body.classList.toggle('dark-theme', newTheme === 'dark');
+		localStorage.setItem('theme', newTheme);
+		updateThemeIcon(newTheme);
+	}
+
+	function updateThemeIcon(theme) {
+		const themeButton = document.getElementById('theme-toggle');
+		const icon = themeButton?.querySelector('iconify-icon');
+		if (icon) {
+			icon.setAttribute('icon', theme === 'dark' ? 'mdi:weather-sunny' : 'mdi:weather-night');
+		}
+	}
+
+	function updateLanguageButton() {
+		const langButton = document.getElementById('lang-text');
+		const currentLang = localStorage.getItem('preferred-language') || 'ru';
+		if (langButton) {
+			langButton.textContent = currentLang.toUpperCase();
+		}
+	}
+
 	// Canvas animation code
 	function saveDotPositions(points) {
 		const dots = points.map(point => ({
@@ -138,6 +217,25 @@ const header = localeTexts.header;
 	}
 
 	document.addEventListener("DOMContentLoaded", () => {
+		// Initialize theme
+		initTheme();
+		updateLanguageButton();
+
+		// Theme toggle event listener
+		const themeToggle = document.getElementById('theme-toggle');
+		if (themeToggle) {
+			themeToggle.addEventListener('click', toggleTheme);
+		}
+
+		// Listen for theme changes from system
+		window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+			if (!localStorage.getItem('theme')) {
+				document.body.classList.toggle('dark-theme', e.matches);
+				updateThemeIcon(e.matches ? 'dark' : 'light');
+			}
+		});
+
+		// Canvas setup
 		const canvas = document.getElementById("header-canvas");
 		const ctx = canvas.getContext("2d");
 		const points = [];
@@ -181,10 +279,15 @@ const header = localeTexts.header;
 		function draw() {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+			// Get theme-aware colors
+			const isDark = document.body.classList.contains('dark-theme');
+			const dotColor = isDark ? "white" : "black";
+			const lineColor = isDark ? "255, 255, 255" : "0, 0, 0";
+
 			points.forEach(point => {
 				ctx.beginPath();
 				ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
-				ctx.fillStyle = "black";
+				ctx.fillStyle = dotColor;
 				ctx.fill();
 			});
 
@@ -198,7 +301,7 @@ const header = localeTexts.header;
 						ctx.beginPath();
 						ctx.moveTo(points[i].x, points[i].y);
 						ctx.lineTo(points[j].x, points[j].y);
-						ctx.strokeStyle = `rgba(0, 0, 0, ${1 - distance / maxDistance})`;
+						ctx.strokeStyle = `rgba(${lineColor}, ${1 - distance / maxDistance})`;
 						ctx.stroke();
 					}
 				}
