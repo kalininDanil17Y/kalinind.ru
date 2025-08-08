@@ -3,8 +3,7 @@
   "header": [
     {"href": "/", "text": "Home"},
     {"href": "/carier", "text": "Career"},
-    {"href": "/projects", "text": "Projects"},
-    {"href": "/blog", "text":  "Blog"}
+    {"href": "/projects", "text": "Projects"}
   ],
   "pages": {
     "index": {
