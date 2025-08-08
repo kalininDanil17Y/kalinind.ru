@@ -1,9 +1,6 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-
-import { getLocale, getLocaleTexts } from '../utils/localize';
-let locale = getLocale();
-const localeTexts: any = await getLocaleTexts(locale)
+// Для статической генерации используем русский язык по умолчанию
+const localeTexts = await import('../locales/ru.json');
 const title = localeTexts.title;
 const header = localeTexts.header;
 ---
@@ -14,7 +11,7 @@ const header = localeTexts.header;
 		<h2><a href="/">{title}</a></h2>
 		<div class="internal-links">
 			{header.map((link: any) =>
-				<HeaderLink href={link.href}>{link.text}</HeaderLink>
+				<a href={link.href}>{link.text}</a>
 			)}
 		</div>
 		<div class="social-links">
