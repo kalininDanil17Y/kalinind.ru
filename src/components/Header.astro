@@ -2,7 +2,7 @@
 import HeaderLink from './HeaderLink.astro';
 
 import { getLocale, getLocaleTexts } from '../utils/localize';
-let locale = getLocale(Astro.request);
+let locale = getLocale();
 const localeTexts: any = await getLocaleTexts(locale)
 const title = localeTexts.title;
 const header = localeTexts.header;
@@ -232,4 +232,3 @@ const header = localeTexts.header;
 		draw();
 	});
 </script>
-
