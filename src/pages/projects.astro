@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getLocale, getLocaleTexts } from '../utils/localize';
-const locale = getLocale(Astro.request);
+const locale = getLocale();
 
 const localeTexts: any = await getLocaleTexts(locale)
 const title = localeTexts.title;
