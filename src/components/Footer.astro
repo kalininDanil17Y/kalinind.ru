@@ -22,9 +22,10 @@ const podName = process.env.POD_NAME || '';
 			<iconify-icon icon="mdi:github" width="32" height="32"></iconify-icon>
 		</a>
 
-		<a href="#" id="lang-toggle-footer" title="Toggle Language" aria-label="Toggle Language">
-			<iconify-icon icon="mdi:translate" width="32" height="32"></iconify-icon>
-		</a>
+		<button id="lang-toggle-footer" class="footer-control-button" title="Toggle Language" aria-label="Toggle Language">
+			<iconify-icon icon="mdi:translate" width="20" height="20"></iconify-icon>
+			<span id="lang-text-footer">RU</span>
+		</button>
 	</div>
 	<span>{podName}</span><br>
 	<span><a href="https://github.com/kalininDanil17Y/kalinind.ru">Source code</a> | <a href="https://hub.docker.com/repository/docker/danilo9/kalinind.ru/">DockerHub</a></span>
@@ -36,6 +37,7 @@ const podName = process.env.POD_NAME || '';
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 	
 	.social-links {
@@ -44,24 +46,74 @@ const podName = process.env.POD_NAME || '';
 		gap: 1em;
 		margin-top: 1em;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
-		transition: opacity 0.2s ease;
+		transition: opacity 0.2s ease, color 0.3s ease;
 	}
 	
 	.social-links a:hover {
 		opacity: 0.7;
 	}
 
-	#lang-toggle-footer {
+	.footer-control-button {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.4rem 0.8rem;
+		background: rgba(var(--accent), 0.1);
+		border: 1px solid rgba(var(--accent), 0.3);
+		border-radius: 4px;
+		color: var(--accent);
 		cursor: pointer;
+		font-size: 0.8rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		text-decoration: none;
+		font-family: inherit;
+	}
+
+	.footer-control-button:hover {
+		background: rgba(var(--accent), 0.2);
+		border-color: rgba(var(--accent), 0.5);
+	}
+
+	:global(body.dark-theme) .footer-control-button {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.3);
+		color: #e0e0e0;
+	}
+
+	:global(body.dark-theme) .footer-control-button:hover {
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.5);
 	}
 
 	.heart {
 		cursor: help;
+	}
+
+	footer a {
+		color: rgb(var(--gray));
+		transition: color 0.3s ease;
+	}
+
+	footer a:hover {
+		color: var(--accent);
+	}
+
+	@media (max-width: 480px) {
+		.social-links {
+			gap: 0.5rem;
+		}
+
+		.footer-control-button {
+			padding: 0.3rem 0.6rem;
+			font-size: 0.75rem;
+		}
 	}
 </style>
 
@@ -76,5 +128,23 @@ const podName = process.env.POD_NAME || '';
 				return element.getElementsByTagName('img')[0].alt;
 			}
 		});
+
+		// Update footer language button
+		function updateFooterLanguageButton() {
+			const langText = document.getElementById('lang-text-footer');
+			const currentLang = localStorage.getItem('preferred-language') || 'ru';
+			if (langText) {
+				langText.textContent = currentLang.toUpperCase();
+			}
+		}
+
+		updateFooterLanguageButton();
+
+		// Listen for language changes to update footer button
+		if (window.localeManager) {
+			window.localeManager.subscribe(() => {
+				updateFooterLanguageButton();
+			});
+		}
 	})
 </script>
