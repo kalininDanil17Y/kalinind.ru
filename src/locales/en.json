@@ -10,8 +10,7 @@
   "hero": {
     "greeting": "Hi! I'm Danil",
     "title": "Fullstack Developer",
-    "subtitle": "Creating modern web applications and mobile solutions",
-    "cta": "Learn more"
+    "subtitle": "Creating modern web applications and mobile solutions"
   },
   "about": {
     "title": "About me",
