@@ -225,6 +225,13 @@ class LocaleManager {
         });
     }
 
+    updateLanguageButton() {
+        const langText = document.getElementById('lang-text');
+        if (langText) {
+            langText.textContent = this.currentLocale.toUpperCase();
+        }
+    }
+
     // Для подписки на изменения языка
     subscribe(callback) {
         this.observers.push(callback);
