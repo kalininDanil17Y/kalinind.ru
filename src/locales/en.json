@@ -56,7 +56,6 @@
           {"name": "Node.js", "level": 70, "icon": "devicon:nodejs"},
           {"name": "ASP.NET", "level": 65, "icon": "devicon:dot-net"},
           {"name": "REST API", "level": 85, "icon": "material-symbols:api"},
-          {"name": "GraphQL", "level": 60, "icon": "devicon:graphql"}
         ]
       },
       "databases": {
