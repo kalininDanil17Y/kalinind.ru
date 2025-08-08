@@ -146,20 +146,6 @@
         "demo": "#"
       },
       {
-        "name": "BloodyAssistant",
-        "description": "Голосовой ассистент для умного дома с веб-пан��лью и мобильным приложением",
-        "image": "/images/projects/assistant.jpg",
-        "technologies": ["Vue.js", "PHP", "Flutter", "WebRTC"],
-        "features": [
-          "Голосовое управление",
-          "Веб-панель управления",
-          "Android приложение",
-          "IoT интеграция"
-        ],
-        "github": "#",
-        "demo": "#"
-      },
-      {
         "name": "VDSpace",
         "description": "Сервис аренды виртуальных серверов для малого бизнеса",
         "image": "/images/projects/vdspace.png",
@@ -177,7 +163,7 @@
         "name": "ZendorBot",
         "description": "Игровой бот для ВКонтакте с расширенными возможностями",
         "image": "/images/projects/zendorbot.png",
-        "technologies": ["PHP", "Node.js", "VK API"],
+        "technologies": ["PHP", "VK API"],
         "features": [
           "Игровые механики",
           "Система достижений",
