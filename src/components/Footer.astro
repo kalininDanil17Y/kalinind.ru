@@ -1,9 +1,5 @@
 ---
 const today = new Date();
-
-import { getLocale } from '../utils/localize';
-let locale = getLocale();
-
 const podName = process.env.POD_NAME || '';
 ---
 
@@ -71,4 +67,14 @@ const podName = process.env.POD_NAME || '';
 
 <script>
 	import 'iconify-icon';
+</script>
+
+<script type="application/javascript" is:inline>
+	window.addEventListener('load', function () {
+		baguetteBox.run('.imgbox', {
+			captions: function(element) {
+				return element.getElementsByTagName('img')[0].alt;
+			}
+		});
+	})
 </script>
