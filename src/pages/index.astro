@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
 
 // Для статической генерации используем русский язык по умолчанию
 const localeTexts = await import('../locales/ru.json');
@@ -15,23 +16,40 @@ const texts = localeTexts.pages.index;
 		<BaseHead title={title} description={texts.description} />
 	</head>
 	<body>
-		<Header />
-		<main>
-			<h3 data-localize="greeting">{texts.greeting}</h3>
-			<p data-localize="introduction">{texts.introduction}</p>
-			<p data-localize="current_education">{texts.current_education}</p>
-			<p data-localize="programming_skills">{texts.programming_skills}</p>
-			<h4 data-localize="skills_title">{texts.skills_title}</h4>
-			<ul data-localize="skills-list">
-				{texts.skills.map((skill: any) => <li>{skill}</li>)}
-			</ul>
-			<p data-localize="additional_info">{texts.additional_info}</p>
-			<p data-localize="additional_info2">{texts.additional_info2}</p>
-		</main>
-		<Footer />
+		<Loader />
+		
+		<div id="main-content" class="main-content hidden">
+			<Header />
+			<main>
+				<h3 data-localize="greeting">{texts.greeting}</h3>
+				<p data-localize="introduction">{texts.introduction}</p>
+				<p data-localize="current_education">{texts.current_education}</p>
+				<p data-localize="programming_skills">{texts.programming_skills}</p>
+				<h4 data-localize="skills_title">{texts.skills_title}</h4>
+				<ul data-localize="skills-list">
+					{texts.skills.map((skill: any) => <li>{skill}</li>)}
+				</ul>
+				<p data-localize="additional_info">{texts.additional_info}</p>
+				<p data-localize="additional_info2">{texts.additional_info2}</p>
+			</main>
+			<Footer />
+		</div>
 		
 		<script>
 			import '../utils/client-localize.js';
 		</script>
+
+		<style>
+			.main-content.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.main-content {
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+		</style>
 	</body>
 </html>
