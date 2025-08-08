@@ -10,15 +10,18 @@ class LocaleManager {
     async init() {
         // Загружаем данные локализации
         await this.loadLocaleData();
-        
+
         // Определяем язык
         this.currentLocale = this.detectLanguage();
-        
+
         // Применяем локализацию
         this.applyLocalization();
-        
+
         // Устанавливаем обработчики событий
         this.setupEventListeners();
+
+        // Скрываем загрузку после полной инициализации
+        this.hideLoader();
     }
 
     async loadLocaleData() {
