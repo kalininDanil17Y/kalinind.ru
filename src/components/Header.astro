@@ -5,157 +5,171 @@ const title = localeTexts.title;
 const header = localeTexts.header;
 ---
 
-<header>
-	<canvas id="header-canvas"></canvas>
-	<nav>
-		<h2><a href="/">{title}</a></h2>
-		<div class="internal-links">
+<header class="header">
+	<nav class="nav">
+		<div class="nav-brand">
+			<a href="#" class="brand-link">{title}</a>
+		</div>
+		
+		<div class="nav-links">
 			{header.map((link: any) =>
-				<a href={link.href}>{link.text}</a>
+				<a href={link.href} class="nav-link">{link.text}</a>
 			)}
 		</div>
-		<div class="controls">
-			<button id="theme-toggle" class="control-button" title="Toggle Theme" aria-label="Toggle Theme">
+		
+		<div class="nav-controls">
+			<button id="theme-toggle" class="control-btn" title="Toggle Theme" aria-label="Toggle Theme">
 				<iconify-icon icon="mdi:theme-light-dark" width="20" height="20"></iconify-icon>
-				<span class="button-text">Theme</span>
 			</button>
-			<button id="lang-toggle" class="control-button" title="Toggle Language" aria-label="Toggle Language">
-				<iconify-icon icon="mdi:translate" width="20" height="20"></iconify-icon>
-				<span class="button-text" id="lang-text">RU</span>
+			<button id="lang-toggle" class="control-btn" title="Toggle Language" aria-label="Toggle Language">
+				<iconify-icon icon="mdi:translate" width="16" height="16"></iconify-icon>
+				<span class="lang-text" id="lang-text">RU</span>
+			</button>
+			<button class="mobile-menu-toggle" id="mobile-menu-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
 			</button>
 		</div>
 	</nav>
 </header>
 
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: rgba(255, 255, 255, .6);
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-		position: sticky;
+	.header {
+		position: fixed;
 		top: 0;
-		overflow: hidden;
-		background: white;
-		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		background: rgba(var(--background-rgb), 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(var(--gray-light), 0.1);
+		transition: all 0.3s ease;
 	}
 
-	:global(body.dark-theme) header {
-		background: rgba(30, 30, 30, 0.95);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 20%);
+	:global(body.dark-theme) .header {
+		background: rgba(26, 26, 26, 0.95);
+		border-bottom-color: rgba(255, 255, 255, 0.1);
 	}
 
-	h2 {
-		margin: 0;
-		font-size: 1em;
-		display: flex;
-		justify-content: center;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-		transition: color 0.3s ease;
-	}
-	
-	nav {
+	.nav {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		position: relative;
-		z-index: 1;
-		background: rgba(255, 255, 255, 0.6);
-		transition: background-color 0.3s ease;
 	}
 
-	:global(body.dark-theme) nav {
-		background: rgba(30, 30, 30, 0.6);
-	}
-	
-	nav a {
-		padding: .65em .65em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-		font-size: clamp(0.1rem, 1vw + 0.5rem, 1.1rem);
-		transition: color 0.3s ease, border-color 0.3s ease;
-	}
-
-	:global(body.dark-theme) nav a {
-		color: #e0e0e0;
-	}
-	
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	
-	.controls {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.control-button {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.5rem 1rem;
-		background: rgba(var(--accent), 0.1);
-		border: 1px solid rgba(var(--accent), 0.3);
-		border-radius: 6px;
+	.nav-brand .brand-link {
+		font-size: 1.5rem;
+		font-weight: 700;
 		color: var(--accent);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.nav-brand .brand-link:hover {
+		color: var(--accent-dark);
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.nav-link {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		font-weight: 500;
+		padding: 0.5rem 1rem;
+		border-radius: 8px;
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.nav-link:hover {
+		color: var(--accent);
+		background: rgba(var(--accent-rgb), 0.1);
+	}
+
+	.nav-controls {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.control-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.5rem 0.75rem;
+		background: rgba(var(--gray-light), 0.1);
+		border: 1px solid rgba(var(--gray-light), 0.2);
+		border-radius: 8px;
+		color: rgb(var(--gray-dark));
 		cursor: pointer;
 		font-size: 0.9rem;
 		font-weight: 500;
 		transition: all 0.2s ease;
-		text-decoration: none;
+		font-family: inherit;
 	}
 
-	.control-button:hover {
-		background: rgba(var(--accent), 0.2);
-		border-color: rgba(var(--accent), 0.5);
+	.control-btn:hover {
+		background: rgba(var(--gray-light), 0.2);
+		border-color: rgba(var(--gray-light), 0.4);
 		transform: translateY(-1px);
 	}
 
-	.control-button:active {
-		transform: translateY(0);
+	.mobile-menu-toggle {
+		display: none;
+		flex-direction: column;
+		gap: 3px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
 	}
 
-	:global(body.dark-theme) .control-button {
-		background: rgba(255, 255, 255, 0.1);
-		border-color: rgba(255, 255, 255, 0.3);
-		color: #e0e0e0;
+	.mobile-menu-toggle span {
+		width: 20px;
+		height: 2px;
+		background: rgb(var(--gray-dark));
+		transition: all 0.3s ease;
 	}
 
-	:global(body.dark-theme) .control-button:hover {
-		background: rgba(255, 255, 255, 0.2);
-		border-color: rgba(255, 255, 255, 0.5);
-	}
+	@media (max-width: 768px) {
+		.nav {
+			padding: 1rem;
+		}
 
-	.button-text {
-		font-family: inherit;
-	}
-	
-	@media (max-width: 720px) {
-		.button-text {
+		.nav-links {
 			display: none;
 		}
-		
-		.control-button {
+
+		.mobile-menu-toggle {
+			display: flex;
+		}
+
+		.lang-text {
+			display: none;
+		}
+
+		.control-btn {
 			padding: 0.5rem;
 		}
 	}
 
-	#header-canvas {
-		position: absolute;
-		width: 100%;
-		height: 150%;
-		z-index: -1;
+	/* CSS переменные для цветов */
+	:root {
+		--background-rgb: 255, 255, 255;
+		--accent-rgb: 35, 55, 255;
 	}
 
-	.internal-links {
-		text-align: center;
+	:global(body.dark-theme) {
+		--background-rgb: 26, 26, 26;
+		--accent-rgb: 79, 107, 255;
 	}
 </style>
 
@@ -166,7 +180,6 @@ const header = localeTexts.header;
 <script type="application/javascript" is:inline>
 	// Theme management
 	function initTheme() {
-		// Check for saved theme or default to light
 		const savedTheme = localStorage.getItem('theme');
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		const theme = savedTheme || (prefersDark ? 'dark' : 'light');
@@ -200,26 +213,31 @@ const header = localeTexts.header;
 		}
 	}
 
-	// Canvas animation code
-	function saveDotPositions(points) {
-		const dots = points.map(point => ({
-			x: point.x,
-			y: point.y,
-			vx: point.vx,
-			vy: point.vy
-		}));
-		localStorage.setItem('dotPositions', JSON.stringify(dots));
-	}
-
-	function loadDotPositions() {
-		const storedDots = localStorage.getItem('dotPositions');
-		return storedDots ? JSON.parse(storedDots) : [];
+	// Smooth scrolling for navigation links
+	function initSmoothScrolling() {
+		document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const targetId = link.getAttribute('href').substring(1);
+				const targetElement = document.getElementById(targetId);
+				
+				if (targetElement) {
+					const headerHeight = document.querySelector('.header').offsetHeight;
+					const targetPosition = targetElement.offsetTop - headerHeight - 20;
+					
+					window.scrollTo({
+						top: targetPosition,
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
 	}
 
 	document.addEventListener("DOMContentLoaded", () => {
-		// Initialize theme
 		initTheme();
 		updateLanguageButton();
+		initSmoothScrolling();
 
 		// Theme toggle event listener
 		const themeToggle = document.getElementById('theme-toggle');
@@ -227,92 +245,12 @@ const header = localeTexts.header;
 			themeToggle.addEventListener('click', toggleTheme);
 		}
 
-		// Listen for theme changes from system
-		window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+		// System theme change listener
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
 			if (!localStorage.getItem('theme')) {
 				document.body.classList.toggle('dark-theme', e.matches);
 				updateThemeIcon(e.matches ? 'dark' : 'light');
 			}
 		});
-
-		// Canvas setup
-		const canvas = document.getElementById("header-canvas");
-		const ctx = canvas.getContext("2d");
-		const points = [];
-		const pointCount = 50;
-		const maxDistance = 100;
-
-		function resizeCanvas() {
-			canvas.width = canvas.offsetWidth;
-			canvas.height = canvas.offsetHeight;
-		}
-
-		resizeCanvas();
-		window.addEventListener('resize', resizeCanvas);
-
-		class Point {
-			constructor(x = Math.random() * canvas.width, y = Math.random() * canvas.height, vx = (Math.random() - 0.5), vy = (Math.random() - 0.5)) {
-				this.x = x;
-				this.y = y;
-				this.vx = vx;
-				this.vy = vy;
-			}
-
-			update() {
-				this.x += this.vx;
-				this.y += this.vy;
-
-				if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-				if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-			}
-		}
-
-		const savedDots = loadDotPositions();
-		if (savedDots.length > 0) {
-			savedDots.forEach(dot => points.push(new Point(dot.x, dot.y, dot.vx, dot.vy)));
-		} else {
-			for (let i = 0; i < pointCount; i++) {
-				points.push(new Point());
-			}
-		}
-
-		function draw() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-			// Get theme-aware colors
-			const isDark = document.body.classList.contains('dark-theme');
-			const dotColor = isDark ? "white" : "black";
-			const lineColor = isDark ? "255, 255, 255" : "0, 0, 0";
-
-			points.forEach(point => {
-				ctx.beginPath();
-				ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
-				ctx.fillStyle = dotColor;
-				ctx.fill();
-			});
-
-			for (let i = 0; i < points.length; i++) {
-				for (let j = i + 1; j < points.length; j++) {
-					const dx = points[i].x - points[j].x;
-					const dy = points[i].y - points[j].y;
-					const distance = Math.sqrt(dx * dx + dy * dy);
-
-					if (distance < maxDistance) {
-						ctx.beginPath();
-						ctx.moveTo(points[i].x, points[i].y);
-						ctx.lineTo(points[j].x, points[j].y);
-						ctx.strokeStyle = `rgba(${lineColor}, ${1 - distance / maxDistance})`;
-						ctx.stroke();
-					}
-				}
-			}
-
-			points.forEach(point => point.update());
-			requestAnimationFrame(draw);
-		}
-
-		window.addEventListener('beforeunload', () => saveDotPositions(points));
-
-		draw();
 	});
 </script>
