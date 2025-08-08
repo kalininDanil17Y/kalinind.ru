@@ -69,7 +69,7 @@ class LocaleManager {
         if (!this.localeData[this.currentLocale]) return;
 
         const data = this.localeData[this.currentLocale];
-        
+
         // Обновляем заголовок страницы
         document.title = this.getPageTitle(data);
 
@@ -78,6 +78,9 @@ class LocaleManager {
 
         // Обновляем контент страницы
         this.updatePageContent(data);
+
+        // Обновляем кнопку языка
+        this.updateLanguageButton();
     }
 
     getPageTitle(data) {
