@@ -21,11 +21,6 @@ const podName = process.env.POD_NAME || '';
 		<a href="https://github.com/kalininDanil17Y" target="_blank" title="GitHub" aria-label="GitHub">
 			<iconify-icon icon="mdi:github" width="32" height="32"></iconify-icon>
 		</a>
-
-		<button id="lang-toggle-footer" class="footer-control-button" title="Toggle Language" aria-label="Toggle Language">
-			<iconify-icon icon="mdi:translate" width="20" height="20"></iconify-icon>
-			<span id="lang-text-footer">RU</span>
-		</button>
 	</div>
 	<span>{podName}</span><br>
 	<span><a href="https://github.com/kalininDanil17Y/kalinind.ru">Source code</a> | <a href="https://hub.docker.com/repository/docker/danilo9/kalinind.ru/">DockerHub</a></span>
@@ -128,23 +123,4 @@ const podName = process.env.POD_NAME || '';
 				return element.getElementsByTagName('img')[0].alt;
 			}
 		});
-
-		// Update footer language button
-		function updateFooterLanguageButton() {
-			const langText = document.getElementById('lang-text-footer');
-			const currentLang = localStorage.getItem('preferred-language') || 'ru';
-			if (langText) {
-				langText.textContent = currentLang.toUpperCase();
-			}
-		}
-
-		updateFooterLanguageButton();
-
-		// Listen for language changes to update footer button
-		if (window.localeManager) {
-			window.localeManager.subscribe(() => {
-				updateFooterLanguageButton();
-			});
-		}
-	})
 </script>
