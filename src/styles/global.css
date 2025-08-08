@@ -21,6 +21,7 @@
 body.dark-theme {
 	--accent: #4f6bff;
 	--accent-dark: #2337ff;
+	--accent-rgb: 79, 107, 255;
 	--black: 220, 220, 220;
 	--gray: 160, 160, 160;
 	--gray-light: 60, 60, 60;
