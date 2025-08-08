@@ -29,10 +29,14 @@ const podName = process.env.POD_NAME || '';
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		background-color: rgb(var(--gray-light), 0.3);
 		color: rgb(var(--gray));
 		text-align: center;
 		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	:global(body.dark-theme) footer {
+		background-color: rgb(var(--gray-light), 0.5);
 	}
 	
 	.social-links {
