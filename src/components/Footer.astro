@@ -3,115 +3,103 @@ const today = new Date();
 const podName = process.env.POD_NAME || '';
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Made with love <span class="heart" title="❤">❤</span>
-	<div class="social-links">
-		<a href="https://www.linkedin.com/in/kalinind/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-			<iconify-icon icon="mdi:linkedin" width="32" height="32"></iconify-icon>
-		</a>
-
-		<a href="https://kalinindanil17y.t.me/" title="Telegram" aria-label="Telegram">
-			<iconify-icon icon="mdi:telegram" width="32" height="32"></iconify-icon>
-		</a>
-
-		<a href="https://www.facebook.com/profile.php?id=100018704474057" target="_blank" title="Facebook" aria-label="Facebook">
-			<iconify-icon icon="mdi:facebook" width="32" height="32"></iconify-icon>
-		</a>
+<footer class="footer">
+	<div class="footer-content">
+		<div class="footer-info">
+			<p>&copy; {today.getFullYear()} Made with ❤️ by Kalinin Danil</p>
+			{podName && <span class="pod-name">{podName}</span>}
+		</div>
 		
-		<a href="https://github.com/kalininDanil17Y" target="_blank" title="GitHub" aria-label="GitHub">
-			<iconify-icon icon="mdi:github" width="32" height="32"></iconify-icon>
-		</a>
+		<div class="footer-links">
+			<a href="https://github.com/kalininDanil17Y/kalinind.ru" target="_blank" class="footer-link">
+				<iconify-icon icon="mdi:github" width="16"></iconify-icon>
+				Source Code
+			</a>
+			<a href="https://hub.docker.com/repository/docker/danilo9/kalinind.ru/" target="_blank" class="footer-link">
+				<iconify-icon icon="mdi:docker" width="16"></iconify-icon>
+				Docker Hub
+			</a>
+		</div>
 	</div>
-	<span>{podName}</span><br>
-	<span><a href="https://github.com/kalininDanil17Y/kalinind.ru">Source code</a> | <a href="https://hub.docker.com/repository/docker/danilo9/kalinind.ru/">DockerHub</a></span>
 </footer>
 
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background-color: rgb(var(--gray-light), 0.3);
-		color: rgb(var(--gray));
-		text-align: center;
-		transition: background-color 0.3s ease, color 0.3s ease;
+	.footer {
+		background: rgba(var(--gray-light), 0.2);
+		border-top: 1px solid rgba(var(--gray-light), 0.3);
+		padding: 2rem 0;
+		transition: all 0.3s ease;
 	}
 
-	:global(body.dark-theme) footer {
-		background-color: rgb(var(--gray-light), 0.5);
+	:global(body.dark-theme) .footer {
+		background: rgba(var(--gray-light), 0.3);
+		border-top-color: rgba(255, 255, 255, 0.1);
 	}
-	
-	.social-links {
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
 		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
+		gap: 1rem;
 	}
-	
-	.social-links a {
-		text-decoration: none;
+
+	.footer-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.footer-info p {
+		margin: 0;
 		color: rgb(var(--gray));
-		transition: opacity 0.2s ease, color 0.3s ease;
+		font-size: 0.9rem;
 	}
-	
-	.social-links a:hover {
+
+	.pod-name {
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
 		opacity: 0.7;
 	}
 
-	.footer-control-button {
+	.footer-links {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.footer-link {
 		display: flex;
 		align-items: center;
-		gap: 0.3rem;
-		padding: 0.4rem 0.8rem;
-		background: rgba(var(--accent), 0.1);
-		border: 1px solid rgba(var(--accent), 0.3);
-		border-radius: 4px;
-		color: var(--accent);
-		cursor: pointer;
-		font-size: 0.8rem;
-		font-weight: 500;
-		transition: all 0.2s ease;
-		text-decoration: none;
-		font-family: inherit;
-	}
-
-	.footer-control-button:hover {
-		background: rgba(var(--accent), 0.2);
-		border-color: rgba(var(--accent), 0.5);
-	}
-
-	:global(body.dark-theme) .footer-control-button {
-		background: rgba(255, 255, 255, 0.1);
-		border-color: rgba(255, 255, 255, 0.3);
-		color: #e0e0e0;
-	}
-
-	:global(body.dark-theme) .footer-control-button:hover {
-		background: rgba(255, 255, 255, 0.2);
-		border-color: rgba(255, 255, 255, 0.5);
-	}
-
-	.heart {
-		cursor: help;
-	}
-
-	footer a {
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
 		color: rgb(var(--gray));
-		transition: color 0.3s ease;
+		text-decoration: none;
+		border-radius: 6px;
+		transition: all 0.3s ease;
+		font-size: 0.9rem;
+		border: 1px solid rgba(var(--gray-light), 0.3);
 	}
 
-	footer a:hover {
+	.footer-link:hover {
 		color: var(--accent);
+		border-color: var(--accent);
+		background: rgba(var(--accent-rgb), 0.1);
+		transform: translateY(-1px);
 	}
 
-	@media (max-width: 480px) {
-		.social-links {
-			gap: 0.5rem;
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			text-align: center;
 		}
 
-		.footer-control-button {
-			padding: 0.3rem 0.6rem;
-			font-size: 0.75rem;
+		.footer-links {
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 	}
 </style>
@@ -122,10 +110,12 @@ const podName = process.env.POD_NAME || '';
 
 <script type="application/javascript" is:inline>
 	window.addEventListener('load', function () {
-		baguetteBox.run('.imgbox', {
-			captions: function(element) {
-				return element.getElementsByTagName('img')[0].alt;
-			}
-		});
-  });
+		if (typeof baguetteBox !== 'undefined') {
+			baguetteBox.run('.imgbox', {
+				captions: function(element) {
+					return element.getElementsByTagName('img')[0].alt;
+				}
+			});
+		}
+	});
 </script>
