@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
 
 export interface Props {
 	title: string;
@@ -19,11 +20,28 @@ const { title, bodyTitle, description } = Astro.props;
 		<BaseHead title={title} description={description} />
 	</head>
 	<body>
-		<Header />
-		<main>
-			{bodyTitle && <h1>{bodyTitle}</h1>}
-			<slot />
-		</main>
-		<Footer />
+		<Loader />
+		
+		<div id="main-content" class="main-content hidden">
+			<Header />
+			<main>
+				{bodyTitle && <h1>{bodyTitle}</h1>}
+				<slot />
+			</main>
+			<Footer />
+		</div>
+
+		<style>
+			.main-content.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.main-content {
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+		</style>
 	</body>
 </html>
