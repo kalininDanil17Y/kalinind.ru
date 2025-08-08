@@ -1,117 +1,223 @@
 {
   "title": "Kalinin Danil",
   "header": [
-    {"href": "/", "text": "Home"},
-    {"href": "/carier", "text": "Career"},
-    {"href": "/projects", "text": "Projects"}
+    {"href": "#about", "text": "About"},
+    {"href": "#skills", "text": "Skills"},
+    {"href": "#experience", "text": "Experience"},
+    {"href": "#projects", "text": "Projects"},
+    {"href": "#contact", "text": "Contact"}
   ],
-  "pages": {
-    "index": {
-      "description": "Portfolio - Kalinin Danil Evgenievich | Skills, Projects, and Career",
-      "greeting": "\uD83D\uDC4B Hi, let's get acquainted",
-      "introduction": "My name is Danil, and I am 20 years old. I have been interested in programming and various sciences since I was 12. Since childhood, I've been drawn to technology and have always found pleasure in studying different devices and creating something new.",
-      "current_education": "Currently, I work in game development and also engage in both personal and freelance projects. I am actively striving to develop my professional skills. I am proficient in OOP and MVC (ModelViewController), and have experience working with Laravel and Symfony.",
-      "programming_skills": "I studied machine learning and implemented face and object recognition using Python. I have experience creating simple VK bots (photo processing, linking Python and PHP). Many personal projects I have led include games, chat bots, online stores, and hosting.",
-      "skills_title": "Programming Skills",
-      "skills": [
-        "PHP",
-        "Python",
-        "JavaScript",
-        "TypeScript",
-        "Vue",
-        "React",
-        "Java (Kotlin)",
-        "C# (ASP.Net)"
-      ],
-      "additional_info": "I also worked with MySQL, PostgreSQL, and REST API. Thanks to my understanding of browser and protocol principles, I have skills in working with telnet and various development environments. I can test API systems and develop my own, understand networking principles, and work with version control systems like Git.",
-      "additional_info2": "I have always been attracted to mathematics and physics in school and college. I gladly participate in engineering projects, capable of creating software solutions and assembling electronic circuits."
-    },
-    "carier": {
-      "bodyTitle": "Career",
-      "description": "Learn more about my professional path, career growth notes, and unique skills. Throughout my career, I have worked in various positions at leading companies, gaining valuable experience and skills shared on this page.",
-      "content": [
-        {
-          "title": "Komitet",
-          "img": "/images/vc.png",
-          "link": "cmtt.ru",
-          "text": "While working at the 'Komitet' company, I participated in projects vc.ru and dtf.ru - prestigious information news portals offering current news and interesting content to their readers. In 2021, my activity at CMTT.RU was based on improving user experience: I was engaged in fixing old bugs, successfully migrating databases, and developing and implementing new functionalities to improve site performance. My work contributed to enhancing service quality and user satisfaction, maintaining a high level of professionalism and innovation in 'vc.ru' and 'dtf.ru' projects together with the 'Komitet' team.",
-          "dates": "2021 - 2022",
-          "stacks": [
-            {"tag": "js", "text": "JavaScript"},
-            {"tag": "php", "text": "PHP"}
-          ]
-        },
-        {
-          "title": "CryptoPirates",
-          "img": "/images/cryptopirates.jpg",
-          "link": "Crypto-Pirates.app",
-          "text": "As part of the CryptoPirates project, I played a key role in backend development using PHP, creating and optimizing personal account functionality, and integrating the Xsolla payment system for player convenience. My work also included setting up a secure payment system via bank cards, ensuring reliability and convenience for all participants in the CryptoPirates project. My goal was to create a reliable and efficient technical foundation that helped the project thrive in the world of cryptocurrencies and piracy!",
-          "dates": "2022 - 2023",
-          "stacks": [
-            {"tag": "js", "text": "JavaScript"},
-            {"tag": "php", "text": "PHP"},
-            {"tag": "nextjs", "text": "NextJS"}
-          ]
-        },
-        {
-          "title": "Botva.ru",
-          "img": "/images/botva.jpeg",
-          "link": "Botva.ru",
-          "text": "Since 2023, within the framework of the 'Botva' project, I have been bringing creativity and professionalism to the development of exciting events, rewriting legacy code for process optimization. My task is to find effective solutions for complex technical problems, allowing the 'Botva' project to continue evolving and improving. Ambitiously moving forward, I strive to create a unique gaming experience for our users and a bright future for the project!",
-          "dates": "2023",
-          "stacks": [
-            {"tag": "js", "text": "JavaScript"},
-            {"tag": "php", "text": "PHP"},
-            {"tag": "vue", "text": "Vue"}
-          ]
-        }
-      ]
-    },
-    "projects": {
-      "bodyTitle": "Personal Projects",
-      "description": "My personal and commissioned projects, here are presented my best projects.",
-      "content": [
-        {
-          "title": "SocketSecureVPN",
-          "body": "\"SocketSecure VPN\" is an Android app using V2Ray and WebSockets for secure, fast, and unlimited VPN access, data protection, and bypassing restrictions.",
-          "stacks": [
-            {"tag": "react", "text": "React Native"},
-            {"tag": "js", "text": "JavaScript"},
-            {"tag": "php", "text": "PHP"},
-            {"tag": "java", "text": "Java"}
-          ]
-        },
-        {
-          "title": "BloodyAssistant",
-          "body": "Voice assistant for smart home control, with a convenient web control panel and android application for management.",
-          "stacks": [
-            {"tag": "vue", "text": "Vue"},
-            {"tag": "js", "text": "JavaScript"},
-            {"tag": "php", "text": "PHP"},
-            {"tag": "flutter", "text": "Flutter"}
-          ]
-        },
-        {
-          "title": "VDSpace",
-          "body": "A virtual server rental service for small businesses, web hosting, and domain registration.",
-          "img": "/images/projects/vdspace.png",
-          "img_mini": "/images/projects/vdspace-mini.png",
-          "stacks": [
-            {"tag": "php", "text": "PHP"},
-            {"tag": "vue", "text": "Vue"},
-            {"tag": "js", "text": "JavaScript"}
-          ]
-        },
-        {
-          "title": "ZendorBot",
-          "body": "A simple gaming bot for VK, exploring the capabilities of PHP and NodeJS.",
-          "img": "/images/projects/zendorbot.png",
-          "img_mini": "/images/projects/zendorbot-mini.png",
-          "stacks": [
-            {"tag": "php", "text": "PHP"}
-          ]
-        }
-      ]
+  "hero": {
+    "greeting": "Hi! I'm Danil",
+    "title": "Fullstack Developer",
+    "subtitle": "Creating modern web applications and mobile solutions",
+    "cta": "Learn more"
+  },
+  "about": {
+    "title": "About me",
+    "description": "20-year-old developer with 8 years of programming experience. Specializing in fullstack development, game development, and mobile applications.",
+    "highlights": [
+      "8+ years programming experience",
+      "Fullstack Development",
+      "Game Development",
+      "Mobile Development"
+    ]
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "categories": {
+      "languages": {
+        "title": "Programming Languages",
+        "items": [
+          {"name": "PHP", "level": 90, "icon": "devicon:php"},
+          {"name": "JavaScript", "level": 85, "icon": "devicon:javascript"},
+          {"name": "TypeScript", "level": 80, "icon": "devicon:typescript"},
+          {"name": "Python", "level": 75, "icon": "devicon:python"},
+          {"name": "Java", "level": 70, "icon": "devicon:java"},
+          {"name": "C#", "level": 65, "icon": "devicon:csharp"}
+        ]
+      },
+      "frontend": {
+        "title": "Frontend",
+        "items": [
+          {"name": "Vue.js", "level": 85, "icon": "devicon:vuejs"},
+          {"name": "React", "level": 80, "icon": "devicon:react"},
+          {"name": "Next.js", "level": 75, "icon": "devicon:nextjs"},
+          {"name": "Astro", "level": 70, "icon": "devicon:astro"},
+          {"name": "Tailwind CSS", "level": 85, "icon": "devicon:tailwindcss"},
+          {"name": "Sass/SCSS", "level": 80, "icon": "devicon:sass"}
+        ]
+      },
+      "backend": {
+        "title": "Backend",
+        "items": [
+          {"name": "Laravel", "level": 90, "icon": "devicon:laravel"},
+          {"name": "Symfony", "level": 75, "icon": "devicon:symfony"},
+          {"name": "Node.js", "level": 70, "icon": "devicon:nodejs"},
+          {"name": "ASP.NET", "level": 65, "icon": "devicon:dot-net"},
+          {"name": "REST API", "level": 85, "icon": "material-symbols:api"},
+          {"name": "GraphQL", "level": 60, "icon": "devicon:graphql"}
+        ]
+      },
+      "databases": {
+        "title": "Databases",
+        "items": [
+          {"name": "MySQL", "level": 85, "icon": "devicon:mysql"},
+          {"name": "PostgreSQL", "level": 80, "icon": "devicon:postgresql"},
+          {"name": "Redis", "level": 70, "icon": "devicon:redis"},
+          {"name": "MongoDB", "level": 65, "icon": "devicon:mongodb"}
+        ]
+      },
+      "tools": {
+        "title": "Tools",
+        "items": [
+          {"name": "Git", "level": 90, "icon": "devicon:git"},
+          {"name": "Docker", "level": 75, "icon": "devicon:docker"},
+          {"name": "Linux", "level": 80, "icon": "devicon:linux"},
+          {"name": "Figma", "level": 70, "icon": "devicon:figma"},
+          {"name": "VS Code", "level": 85, "icon": "devicon:vscode"},
+          {"name": "PhpStorm", "level": 90, "icon": "devicon:phpstorm"}
+        ]
+      }
     }
+  },
+  "experience": {
+    "title": "Work Experience",
+    "items": [
+      {
+        "company": "Komitet",
+        "position": "Fullstack Developer",
+        "period": "2021 - 2022",
+        "logo": "/images/vc.png",
+        "website": "cmtt.ru",
+        "description": "Development and maintenance of vc.ru and dtf.ru projects. Improving user experience, database migration, developing new features.",
+        "technologies": ["JavaScript", "PHP", "MySQL", "Redis"],
+        "achievements": [
+          "Optimized performance by 30%",
+          "Implemented new UX features",
+          "Conducted database migrations"
+        ]
+      },
+      {
+        "company": "CryptoPirates",
+        "position": "Backend Developer",
+        "period": "2022 - 2023",
+        "logo": "/images/cryptopirates.jpg",
+        "website": "Crypto-Pirates.app",
+        "description": "Backend system development for crypto game. Payment system integration, API creation, performance optimization.",
+        "technologies": ["PHP", "JavaScript", "Next.js", "Xsolla API"],
+        "achievements": [
+          "Integrated Xsolla payment system",
+          "Created secure payment system",
+          "Developed player dashboard"
+        ]
+      },
+      {
+        "company": "Botva.ru",
+        "position": "Lead Developer",
+        "period": "2023 - Present",
+        "logo": "/images/botva.jpeg",
+        "website": "Botva.ru",
+        "description": "Leading gaming platform development. Legacy code refactoring, creating new game mechanics.",
+        "technologies": ["JavaScript", "PHP", "Vue.js", "WebSockets"],
+        "achievements": [
+          "Legacy system refactoring",
+          "Created new game mechanics",
+          "Performance improvements"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "name": "SocketSecureVPN",
+        "description": "Android VPN app with V2Ray and WebSockets for secure internet access",
+        "image": "/images/projects/vpn-app.jpg",
+        "technologies": ["React Native", "JavaScript", "PHP", "Java"],
+        "features": [
+          "Secure VPN connection",
+          "V2Ray protocol",
+          "WebSockets",
+          "Bypass restrictions"
+        ],
+        "github": "#",
+        "demo": "#"
+      },
+      {
+        "name": "BloodyAssistant",
+        "description": "Voice assistant for smart home with web panel and mobile app",
+        "image": "/images/projects/assistant.jpg",
+        "technologies": ["Vue.js", "PHP", "Flutter", "WebRTC"],
+        "features": [
+          "Voice control",
+          "Web control panel",
+          "Android application",
+          "IoT integration"
+        ],
+        "github": "#",
+        "demo": "#"
+      },
+      {
+        "name": "VDSpace",
+        "description": "Virtual server rental service for small businesses",
+        "image": "/images/projects/vdspace.png",
+        "technologies": ["PHP", "Vue.js", "MySQL", "Docker"],
+        "features": [
+          "Automatic deployment",
+          "Control panel",
+          "Resource monitoring",
+          "Integration API"
+        ],
+        "github": "#",
+        "demo": "#"
+      },
+      {
+        "name": "ZendorBot",
+        "description": "Gaming bot for VKontakte with advanced features",
+        "image": "/images/projects/zendorbot.png",
+        "technologies": ["PHP", "Node.js", "VK API"],
+        "features": [
+          "Game mechanics",
+          "Achievement system",
+          "Economy",
+          "Social features"
+        ],
+        "github": "#",
+        "demo": "#"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Ready to discuss your project or collaboration opportunities",
+    "email": "kalinin.danil17y@gmail.com",
+    "social": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kalinind/",
+        "icon": "mdi:linkedin",
+        "color": "#0077B5"
+      },
+      {
+        "name": "Telegram",
+        "url": "https://kalinindanil17y.t.me/",
+        "icon": "mdi:telegram",
+        "color": "#26A5E4"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/kalininDanil17Y",
+        "icon": "mdi:github",
+        "color": "#333"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=100018704474057",
+        "icon": "mdi:facebook",
+        "color": "#1877F2"
+      }
+    ]
   }
 }
