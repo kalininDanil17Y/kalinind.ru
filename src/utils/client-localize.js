@@ -20,7 +20,7 @@ class LocaleManager {
         // Устанавливаем обработчики событий
         this.setupEventListeners();
 
-        // Скрываем загрузку после полной инициализации
+        // Скрываем загрузку после полной инициализ��ции
         this.hideLoader();
     }
 
@@ -187,30 +187,39 @@ class LocaleManager {
         });
     }
 
-    updateProjectsPage(pageData) {
-        // Обновляем заголовок страницы
-        const title = document.querySelector('h1');
-        if (title) {
-            title.textContent = pageData.bodyTitle;
-        }
+    updateLandingPage(data) {
+        // Update all localized elements
+        document.querySelectorAll('[data-localize]').forEach(element => {
+            const key = element.getAttribute('data-localize');
+            const text = this.getNestedValue(data, key);
 
-        // Обновляем контент проектов
-        const containers = document.querySelectorAll('.container');
-        containers.forEach((container, index) => {
-            if (pageData.content[index]) {
-                const content = pageData.content[index];
-                
-                const titleElement = container.querySelector('h4');
-                if (titleElement) {
-                    titleElement.textContent = content.title;
-                }
-
-                const bodyElement = container.querySelector('.body');
-                if (bodyElement) {
-                    bodyElement.textContent = content.body;
+            if (text) {
+                if (Array.isArray(text)) {
+                    // Handle arrays (like highlights, achievements)
+                    if (key === 'about.highlights') {
+                        element.innerHTML = '';
+                        text.forEach(highlight => {
+                            const div = document.createElement('div');
+                            div.className = 'highlight-item';
+                            div.innerHTML = `
+                                <iconify-icon icon="mdi:check-circle" width="20"></iconify-icon>
+                                <span>${highlight}</span>
+                            `;
+                            element.appendChild(div);
+                        });
+                    }
+                } else {
+                    element.textContent = text;
                 }
             }
         });
+
+        // Update email reveal button text
+        const emailBtn = document.getElementById('email-reveal-btn');
+        if (emailBtn && !emailBtn.classList.contains('revealed')) {
+            const currentLang = this.currentLocale;
+            emailBtn.textContent = currentLang === 'ru' ? 'Показать email' : 'Show email';
+        }
     }
 
     setupEventListeners() {
