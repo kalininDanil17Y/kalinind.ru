@@ -11,7 +11,7 @@ class LocaleManager {
         // Загружаем данные локализации
         await this.loadLocaleData();
 
-        // Определяем язык
+        // ��пределяем язык
         this.currentLocale = this.detectLanguage();
 
         // Применяем локализацию
@@ -270,12 +270,19 @@ class LocaleManager {
         // Небольшая задержка для плавности
         setTimeout(() => {
             const loader = document.getElementById('page-loader');
+            const mainContent = document.getElementById('main-content');
+
             if (loader) {
                 loader.classList.add('hidden');
                 // Удаляем loader из DOM через 300ms (время transition)
                 setTimeout(() => {
                     loader.remove();
                 }, 300);
+            }
+
+            // Показываем основной контент
+            if (mainContent) {
+                mainContent.classList.remove('hidden');
             }
         }, 100);
     }
