@@ -230,8 +230,14 @@ class LocaleManager {
 
     updateLanguageButton() {
         const langText = document.getElementById('lang-text');
+        const langTextFooter = document.getElementById('lang-text-footer');
+
         if (langText) {
             langText.textContent = this.currentLocale.toUpperCase();
+        }
+
+        if (langTextFooter) {
+            langTextFooter.textContent = this.currentLocale.toUpperCase();
         }
     }
 
