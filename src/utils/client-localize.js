@@ -11,7 +11,7 @@ class LocaleManager {
         // Загружаем данные локализации
         await this.loadLocaleData();
 
-        // ��пределяем язык
+        // Определяем язык
         this.currentLocale = this.detectLanguage();
 
         // Применяем локализацию
@@ -20,7 +20,7 @@ class LocaleManager {
         // Устанавливаем обработчики событий
         this.setupEventListeners();
 
-        // Скрываем загрузку после полной инициализации
+        // С��рываем загрузку после полной инициализации
         this.hideLoader();
     }
 
@@ -290,5 +290,21 @@ class LocaleManager {
 
 // Создаем глобальный экземпляр
 window.localeManager = new LocaleManager();
+
+// Fallback - показать контент через 3 секунды в любом случае
+setTimeout(() => {
+    const loader = document.getElementById('page-loader');
+    const mainContent = document.getElementById('main-content');
+
+    if (loader && !loader.classList.contains('hidden')) {
+        console.warn('Locale initialization took too long, showing content anyway');
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 300);
+    }
+
+    if (mainContent && mainContent.classList.contains('hidden')) {
+        mainContent.classList.remove('hidden');
+    }
+}, 3000);
 
 export default window.localeManager;
