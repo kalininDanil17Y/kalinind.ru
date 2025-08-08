@@ -1,15 +1,6 @@
-export const getLocaleFromHeaders = (headers) => {
-    const acceptLanguage = headers.get('accept-language');
-
-    if (!acceptLanguage) return 'en'; // Язык по умолчанию
-
-    const languages = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim());
-
-    if (languages.includes('ru')) {
-        return 'ru';
-    } else {
-        return 'en';
-    }
+// Для статической сборки используем русский язык по умолчанию
+export const getLocale = () => {
+    return 'ru';
 };
 
 export const getLocaleTexts = async (locale) => {
@@ -23,18 +14,4 @@ export const getLocaleTexts = async (locale) => {
         console.error('Error loading localization file', error);
         return {};
     }
-};
-
-export const getLocale = (request) => {
-    // Попробуем получить язык из sessionStorage
-    const storedLang = request.headers.get('cookie')?.match(/locale=([^;]+)/)?.[1];
-
-    let lang;
-    if (storedLang) {
-        lang = storedLang;
-    } else {
-        lang = getLocaleFromHeaders(request.headers);
-    }
-
-    return lang === 'en' ? 'en' : 'ru';
 };
