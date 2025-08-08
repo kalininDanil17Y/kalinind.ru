@@ -20,7 +20,7 @@ class LocaleManager {
         // Устанавливаем обработчики событий
         this.setupEventListeners();
 
-        // С��рываем загрузку после полной инициализации
+        // Скрываем загрузку после полной инициализации
         this.hideLoader();
     }
 
@@ -115,15 +115,8 @@ class LocaleManager {
     }
 
     updatePageContent(data) {
-        const path = window.location.pathname;
-        
-        if (path === '/') {
-            this.updateIndexPage(data.pages.index);
-        } else if (path === '/carier' || path === '/carier/') {
-            this.updateCarierPage(data.pages.carier);
-        } else if (path === '/projects' || path === '/projects/') {
-            this.updateProjectsPage(data.pages.projects);
-        }
+        // For single page application - update all sections
+        this.updateLandingPage(data);
     }
 
     updateIndexPage(pageData) {
