@@ -55,7 +55,7 @@
           {"name": "Symfony", "level": 75, "icon": "devicon:symfony"},
           {"name": "Node.js", "level": 70, "icon": "devicon:nodejs"},
           {"name": "ASP.NET", "level": 65, "icon": "devicon:dot-net"},
-          {"name": "REST API", "level": 85, "icon": "material-symbols:api"},
+          {"name": "REST API", "level": 85, "icon": "material-symbols:api"}
         ]
       },
       "databases": {
