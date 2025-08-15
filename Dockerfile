@@ -1,16 +1,15 @@
 #docker hub:  danilo9/kalinind.ru
 
-FROM node:18 AS build
+# Stage 1: Build
+FROM node:20 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:18 AS run
-WORKDIR /app
-ENV PORT=8787
-ENV HOST=0.0.0.0
-COPY --from=build /app .
-EXPOSE 8787
-CMD ["node", "./dist/server/entry.mjs"]
+# Stage 2: Run with Nginx
+FROM nginx:stable-alpine AS run
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
