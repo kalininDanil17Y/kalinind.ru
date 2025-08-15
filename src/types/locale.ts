@@ -14,7 +14,6 @@ export interface Project {
   name: string
   description: string
   technologies: string[]
-  icon: string
   gradient: string
   image?: string
   url?: string
@@ -72,7 +71,13 @@ export interface Locale {
   projects: {
     title: string
     subtitle: string
+    personalTitle: string
+    personalSubtitle: string
+    collaborativeTitle: string
+    collaborativeSubtitle: string
     viewMore: string
+    viewOnGithub: string
+    visitSite: string
     githubLink: string
   }
   contact: {
@@ -87,6 +92,7 @@ export interface Locale {
   socialLinks: SocialLink[]
   technologiesData: Technology[]
   projectsData: Project[]
+  collaborativeProjectsData: Project[]
 }
 
 export type LocaleKey =

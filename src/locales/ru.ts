@@ -72,7 +72,13 @@ export const ruLocale: Locale = {
   projects: {
     title: 'Проекты',
     subtitle: 'Некоторые из проектов, над которыми я работал',
+    personalTitle: 'Мои проекты',
+    personalSubtitle: 'Личные проекты с открытым исходным кодом',
+    collaborativeTitle: 'Коммерческие проекты',
+    collaborativeSubtitle: 'Проекты, в которых я принимал участие',
     viewMore: 'Подробнее',
+    viewOnGithub: 'Смотреть на GitHub',
+    visitSite: 'Посетить сайт',
     githubLink: 'Больше проектов на GitHub',
   },
   contact: {
@@ -229,10 +235,8 @@ export const ruLocale: Locale = {
       description:
         'Платформа для голосований, масштабируемая, защищённая, с фронтендом на Vue. Обеспечивает безопасное проведение онлайн-голосований.',
       technologies: ['Vue', 'C#', 'PostgreSQL', 'Redis'],
-      icon: 'lucide:vote',
       image: 'https://i.ibb.co/RTMfF1vJ/image.png',
-      gradient: 'from-primary-400 to-primary-600',
-      url: 'https://voteza.pro',
+      gradient: 'from-primary-400 to-primary-600'
     },
     {
       name: 'Oauth2Box',
@@ -240,7 +244,6 @@ export const ruLocale: Locale = {
         'Лёгкий, настраиваемый mock OAuth2/OpenID провайдер для разработки и тестирования. ' +
         'Он эмулирует поведение настоящей OAuth2-системы, позволяя легко тестировать клиентские приложения без настоящих авторизаций.',
       technologies: ['OAuth2', 'NodeJs'],
-      icon: 'lucide:key',
       image: 'https://github.com/kalininDanil17Y/Voteza-Oauth2Box/raw/master/assets/voteza-oauth.png',
       gradient: 'from-orange-400 to-orange-600',
       url: 'https://github.com/kalininDanil17Y/Voteza-Oauth2Box',
@@ -249,10 +252,37 @@ export const ruLocale: Locale = {
       name: 'SocketVPN',
       description:
         'VPN-инфраструктура с мастер-сервером и нодами. Обеспечивает безопасное и быстрое подключение через распределённую сеть серверов.',
-      technologies: ['WireGuard', 'Docker', 'Kubernetes', 'Kotlin', 'Java', 'Vue', 'C#'],
-      icon: 'lucide:shield',
+      technologies: ['Docker', 'Kubernetes', 'Kotlin', 'Java', 'Vue', 'C#'],
       image: 'https://i.ibb.co/Hf5Mvs4n/image.png',
       gradient: 'from-emerald-400 to-emerald-600',
+    },
+  ],
+  collaborativeProjectsData: [
+    {
+      name: 'Botva',
+      description:
+        'Ботва Онлайн - это браузерная многопользовательская ролевая игра с пошаговыми боями и сильным уклоном в юмор. Игровой мир наполнен абсурдными и смешными элементами: населён он двумя враждующими расами - свинтусами и барантусами, персонажами, борющимися с помощью вилок, половников, скалок и прочей «тяжёлой кухонной артиллерии»',
+      technologies: ['PHP', 'HTML', 'CSS', 'Jquery'],
+      gradient: 'from-green-400 to-green-600',
+      url: 'https://botva.ru',
+      image: 'https://i2015.otzovik.com/2015/04/12/1995810/img/60633353.jpg'
+    },
+    {
+      name: 'VC.ru',
+      description:
+        'Ведущее российское издание о технологиях, стартапах и бизнесе. Платформа для обмена знаниями и новостями IT-сообщества.',
+      technologies: ['PHP', 'MySQL', 'JavaScript', 'Redis'],
+      gradient: 'from-blue-400 to-blue-600',
+      url: 'https://vc.ru',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi99axOkiQdPsAlcA6PM1dFMszhyLXmxLxIg&s'
+    },
+    {
+      name: 'Crypto-Pirates',
+      description:
+        'Игровая NFT-платформа с элементами DeFi. Пиратская тематика, коллекционные карты и геймифицированный стейкинг.',
+      technologies: ['PHP', 'Web3.js', 'React', 'Next.js'],
+      gradient: 'from-purple-400 to-purple-600',
+      image: 'https://playtoearn.com/img/dapp/crypto-pirates/crypto-pirates-tUCnokYWBQ3v.jpg'
     },
   ],
 }
