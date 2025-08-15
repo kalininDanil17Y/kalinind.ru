@@ -24,7 +24,6 @@ export const enLocale: Locale = {
     subtitle: 'Hi, nice to meet you 👋',
     description: [
       "My name is Danil, and I'm {age} years old. I've been passionate about programming and science since I was 12. I've always been drawn to technology and found joy in exploring devices and creating something new.",
-      "I believe good code is not just about work—it's about care. Every line should be intentional, and every architecture thoughtfully designed.",
     ],
     statistics: {
       title: 'Stats',
@@ -57,7 +56,7 @@ export const enLocale: Locale = {
   },
   technologies: {
     title: 'Technologies',
-    subtitle: 'Tools and technologies I use to build reliable solutions',
+    subtitle: 'Tools and technologies',
     categories: {
       backend: 'Backend',
       frontend: 'Frontend',
@@ -107,7 +106,7 @@ export const enLocale: Locale = {
   ],
   technologiesData: [
     {
-      name: 'PHP (Laravel)',
+      name: 'PHP - Primary stack',
       icon: 'lucide:server',
       category: 'backend',
     },
