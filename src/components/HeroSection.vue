@@ -7,9 +7,7 @@
           <!-- Central avatar -->
           <div
             class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary-200 to-primary-300 dark:from-primary-700 dark:to-primary-600 flex items-center justify-center shadow-lg ring-4 ring-white/20 dark:ring-primary-400/20 bg-cover bg-center relative z-10"
-            style="
-              background-image: url('https://cdn4.telesco.pe/file/dDT1NPEssWyA2TIVMWyklvLiILNBV-_omItZE024QTg3zJzkpIKUi4Zrm7aUWR4X0XmGB5Q2-PZgCsmmrgNyqw0zDCARnQbKIalIdomQTA7qzjnclsFWK88MVuKjmcBJi_MMbnZvYHr9iRJX1ZHMVZLMvJFht7k-XrE3dpH9R0mu_DXmBoymVGP9XRHyWW8QTM6pzCulW3RuIHGlXzLGhRwybSUQyOTYr5N-W5Huoc__ezJ1w4p7yefZb6F_YG2czQ6u1JhD_913-fBrz3999I1aisnNDNlPjwr4_62UBQ7R7tljqlW2Ehwm5bGGFEBNf-9aPp8fZBSrQWyHv2hXgQ.jpg');
-            "
+            :style="{backgroundImage: `url(${Avatar})`}"
           ></div>
 
           <!-- Floating programming language icons -->
@@ -103,6 +101,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
+
+import Avatar from '@/assets/avatar.jpg'
 
 const { t } = useLocale()
 
