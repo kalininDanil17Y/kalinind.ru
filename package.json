@@ -21,6 +21,7 @@
     "@iconify-json/logos": "^1.2.9",
     "@iconify-json/lucide": "^1.2.70",
     "@iconify-json/skill-icons": "^1.2.3",
+    "@tailwindcss/language-server": "^0.14.28",
     "@tailwindcss/typography": "^0.5.19",
     "@tsconfig/node22": "^22.0.2",
     "@types/jsdom": "^21.1.7",
