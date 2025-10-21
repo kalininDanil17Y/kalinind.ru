@@ -174,7 +174,6 @@
 </template>
 
 <script setup lang="ts">
-import "./global.css";
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import HeroSection from './components/HeroSection.vue'
 import TechnologiesSection from './components/TechnologiesSection.vue'
