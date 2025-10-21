@@ -1,4 +1,7 @@
 import type { Locale } from '@/types/locale'
+import { markRaw } from "vue";
+
+import icons from './icons'
 
 export const ruLocale: Locale = {
   meta: {
@@ -39,19 +42,19 @@ export const ruLocale: Locale = {
       items: [
         {
           text: 'Робототехника',
-          icon: 'lucide:cpu'
+          icon: icons.IconCpu
         },
         {
           text: 'DevOps',
-          icon: 'lucide:wrench'
+          icon: icons.IconWrench
         },
         {
           text: 'Проектирование ПО',
-          icon: 'lucide:code'
+          icon: icons.IconCode
         },
         {
           text: 'Научная фантастика',
-          icon: 'lucide:book-open'
+          icon: icons.IconBookOpen
         }
       ],
     }
@@ -93,138 +96,110 @@ export const ruLocale: Locale = {
     {
       name: 'Telegram',
       url: 'https://kalinindanil17y.t.me/',
-      icon: 'lucide:send',
+      icon: markRaw(icons.IconTelegram),
     },
     {
       name: 'GitHub',
       url: 'https://github.com/kalininDanil17Y',
-      icon: 'lucide:github',
+      icon: markRaw(icons.IconGithub),
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/kalinind/',
-      icon: 'lucide:linkedin',
+      icon: markRaw(icons.IconLinkedin),
     },
   ],
   technologiesData: [
     {
       name: 'PHP - Основной стек',
-      icon: 'lucide:server',
       category: 'backend',
     },
     {
       name: 'Python',
-      icon: 'lucide:server',
       category: 'backend',
     },
     {
       name: 'C#',
-      icon: 'lucide:server',
       category: 'backend',
     },
     {
       name: 'Node.js',
-      icon: 'lucide:server',
       category: 'backend',
     },
     {
       name: 'JavaScript',
-      icon: 'lucide:monitor',
       category: 'frontend',
     },
     {
       name: 'TypeScript',
-      icon: 'lucide:monitor',
       category: 'frontend',
     },
     {
       name: 'Vue',
-      icon: 'lucide:monitor',
       category: 'frontend',
     },
     {
       name: 'React',
-      icon: 'lucide:monitor',
       category: 'frontend',
     },
     {
       name: 'TailwindCSS',
-      icon: 'lucide:monitor',
       category: 'frontend',
     },
     {
       name: 'PostgreSQL',
-      icon: 'lucide:database',
       category: 'databases',
     },
     {
       name: 'MySQL',
-      icon: 'lucide:database',
       category: 'databases',
     },
     {
       name: 'Redis',
-      icon: 'lucide:database',
       category: 'databases',
     },
     {
       name: 'MongoDB',
-      icon: 'lucide:database',
       category: 'databases',
     },
     {
       name: 'Docker',
-      icon: 'lucide:settings',
       category: 'devops',
     },
     {
       name: 'Kubernetes',
-      icon: 'lucide:settings',
       category: 'devops',
     },
     {
       name: 'CI/CD',
-      icon: 'lucide:settings',
-      category: 'devops',
-    },
-    {
-      name: 'WireGuard',
-      icon: 'lucide:settings',
       category: 'devops',
     },
     {
       name: 'Android (Kotlin)',
-      icon: 'lucide:smartphone',
       category: 'mobile',
     },
     {
       name: 'Windows (WPF)',
-      icon: 'lucide:smartphone',
       category: 'mobile',
     },
     {
       name: 'Electron',
-      icon: 'lucide:smartphone',
       category: 'mobile',
     },
     {
       name: 'WebSockets',
-      icon: 'lucide:network',
       category: 'api',
     },
     {
       name: 'gRPC',
-      icon: 'lucide:network',
       category: 'api',
     },
     {
       name: 'REST API',
-      icon: 'lucide:network',
       category: 'api',
     },
     {
       name: 'GraphQL',
-      icon: 'lucide:network',
       category: 'api',
     },
   ],

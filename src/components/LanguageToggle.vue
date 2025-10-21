@@ -5,15 +5,18 @@
       class="flex items-center space-x-2 p-2 rounded-lg hover:bg-warm-100 dark:hover:bg-dark-200 transition-colors"
       :class="{ 'bg-warm-100 dark:bg-dark-200': isDropdownOpen }"
     >
-      <Icon icon="lucide:globe" class="w-5 h-5 text-warm-700 dark:text-dark-700" />
+      <i-lucide-globe class="w-5 h-5 text-warm-700 dark:text-dark-700" />
+
       <span class="text-sm font-medium text-warm-700 dark:text-dark-700 hidden sm:inline">
         {{ currentLocale.toUpperCase() }}
       </span>
-      <Icon
-        icon="lucide:chevron-down"
+      <i-lucide-chevron-down
         class="w-4 h-4 text-warm-700 dark:text-dark-700 transition-transform"
         :class="{ 'rotate-180': isDropdownOpen }"
       />
+
+
+
     </button>
 
     <!-- Dropdown -->
@@ -33,7 +36,7 @@
         }"
       >
         <span>{{ getLocaleName(localeCode) }}</span>
-        <Icon v-if="currentLocale === localeCode" icon="lucide:check" class="w-4 h-4" />
+        <i-lucide-check v-if="currentLocale === localeCode" class="w-4 h-4"/>
       </button>
     </div>
   </div>

@@ -1,12 +1,11 @@
 export interface SocialLink {
   name: string
   url: string
-  icon: string
+  icon: any
 }
 
 export interface Technology {
   name: string
-  icon: string
   category: string
 }
 
@@ -52,7 +51,7 @@ export interface Locale {
       title: string
       items: Array<{
         text: string
-        icon: string
+        icon: any
       }>
     }
   }

@@ -23,7 +23,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:server" class="w-6 h-6 text-white" />
+                  <i-lucide-server class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.backend') }}
@@ -49,7 +49,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:monitor" class="w-6 h-6 text-white" />
+                  <i-lucide-monitor class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.frontend') }}
@@ -75,7 +75,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:database" class="w-6 h-6 text-white" />
+                  <i-lucide-database class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.databases') }}
@@ -101,7 +101,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:settings" class="w-6 h-6 text-white" />
+                  <i-lucide-settings class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.devops') }}
@@ -130,7 +130,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:smartphone" class="w-6 h-6 text-white" />
+                  <i-lucide-smartphone class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.mobile') }}
@@ -156,7 +156,7 @@
                 <div
                   class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center mr-3"
                 >
-                  <Icon icon="lucide:network" class="w-6 h-6 text-white" />
+                  <i-lucide-network class="w-6 h-6 text-white" />
                 </div>
                 <h3 class="text-xl font-semibold text-warm-800 dark:text-dark-800">
                   {{ t('technologies.categories.api') }}

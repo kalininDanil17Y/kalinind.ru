@@ -74,10 +74,7 @@
                   v-for="interest in locale.about.interests.items"
                   :key="interest.text"
                 >
-                  <Icon
-                    :icon="interest.icon"
-                    class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3"
-                  />
+                  <component :is="interest.icon" class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3" />
                   <span class="text-warm-700 dark:text-dark-700">{{ interest.text }}</span>
                 </div>
               </div>

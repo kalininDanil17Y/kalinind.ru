@@ -19,7 +19,7 @@
               class="absolute w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-700 rounded-xl shadow-lg flex items-center justify-center animate-float"
               :style="getIconPosition(0, 6)"
             >
-              <Icon icon="logos:vue" class="w-7 h-7" />
+              <i-logos-vue class="w-7 h-7" />
             </div>
 
             <!-- C# -->
@@ -28,7 +28,7 @@
               :style="getIconPosition(1, 6)"
               style="animation-delay: 0.3s"
             >
-              <Icon icon="skill-icons:cs" class="w-7 h-7" />
+              <i-skill-icons-cs class="w-7 h-7"/>
             </div>
 
             <!-- JavaScript -->
@@ -37,7 +37,7 @@
               :style="getIconPosition(2, 6)"
               style="animation-delay: 0.6s"
             >
-              <Icon icon="logos:javascript" class="w-7 h-7" />
+              <i-logos-javascript class="w-7 h-7" />
             </div>
 
             <!-- React -->
@@ -46,7 +46,7 @@
               :style="getIconPosition(3, 6)"
               style="animation-delay: 0.9s"
             >
-              <Icon icon="logos:react" class="w-7 h-7" />
+              <i-logos-react class="w-7 h-7" />
             </div>
 
             <!-- Node.js -->
@@ -55,7 +55,7 @@
               :style="getIconPosition(4, 6)"
               style="animation-delay: 1.2s"
             >
-              <Icon icon="logos:nodejs-icon" class="w-7 h-7" />
+              <i-logos-nodejs-icon class="w-7 h-7" />
             </div>
 
             <!-- Python -->
@@ -64,7 +64,7 @@
               :style="getIconPosition(5, 6)"
               style="animation-delay: 1.5s"
             >
-              <Icon icon="logos:python" class="w-7 h-7" />
+              <i-logos-python class="w-7 h-7" />
             </div>
           </div>
         </div>
@@ -92,10 +92,7 @@
             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:from-primary-600 hover:to-primary-700 dark:hover:from-primary-700 dark:hover:to-primary-800 group"
           >
             {{ t('hero.contactButton') }}
-            <Icon
-              icon="lucide:arrow-right"
-              class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-            />
+            <i-lucide-arrow-right class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"/>
           </button>
         </div>
       </div>
@@ -105,7 +102,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Icon } from '@iconify/vue'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()

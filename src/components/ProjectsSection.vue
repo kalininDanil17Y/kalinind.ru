@@ -65,7 +65,7 @@
                     @click="openProject(project.url)"
                     class="w-full bg-gradient-to-r from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 text-white py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 dark:hover:from-primary-700 dark:hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
-                  <Icon icon="lucide:external-link" class="w-4 h-4 mr-2 inline" />
+                  <i-lucide-external-link class="w-4 h-4 mr-2 inline"/>
                   {{ t('projects.visitSite') }}
                 </button>
                 <button
@@ -73,7 +73,7 @@
                     disabled
                     class="w-full bg-gray-400 dark:bg-gray-600 text-white py-3 rounded-xl font-semibold cursor-not-allowed transition-all duration-300"
                 >
-                  <Icon icon="lucide:external-link" class="w-4 h-4 mr-2 inline" />
+                  <i-lucide-external-link class="w-4 h-4 mr-2 inline"/>
                   {{ t('projects.visitSite') }}
                 </button>
 
@@ -133,7 +133,7 @@
                     @click="openProject(project.url)"
                     class="w-full bg-gradient-to-r from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 text-white py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 dark:hover:from-primary-700 dark:hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
-                  <Icon icon="lucide:github" class="w-4 h-4 mr-2 inline" />
+                  <i-lucide-github class="w-4 h-4 mr-2 inline" />
                   {{ t('projects.viewOnGithub') }}
                 </button>
                 <button
@@ -155,7 +155,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center px-6 py-3 border-2 border-warm-300 dark:border-dark-400 text-warm-700 dark:text-dark-700 font-semibold rounded-xl hover:bg-warm-100 dark:hover:bg-dark-200 transition-all duration-300"
             >
-              <Icon icon="lucide:github" class="w-5 h-5 mr-2" />
+              <i-lucide-github class="w-5 h-5 mr-2" />
               {{ t('projects.githubLink') }}
             </a>
           </div>

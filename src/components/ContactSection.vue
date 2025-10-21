@@ -29,7 +29,7 @@
               <div
                 class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300"
               >
-                <Icon :icon="social.icon" class="w-6 h-6 text-white" />
+                <component :is="social.icon" class="w-6 h-6 text-white" />
               </div>
               <div>
                 <div
@@ -49,10 +49,7 @@
               class="bg-gradient-to-br from-primary-50 to-cream-50 dark:from-primary-900/20 dark:to-primary-800/10 rounded-2xl p-8 border border-primary-100 dark:border-primary-800 card-hover"
             >
               <div class="text-center">
-                <Icon
-                  icon="lucide:mail"
-                  class="w-16 h-16 text-primary-500 dark:text-primary-400 mx-auto mb-4"
-                />
+                <i-lucide-mail class="w-16 h-16 text-primary-500 dark:text-primary-400 mx-auto mb-4"/>
 
                 <p class="text-warm-700 dark:text-dark-700 mb-6">
                   Click on the blurred text below to reveal email address
@@ -79,7 +76,7 @@
                     @click="copyEmail"
                     class="px-6 py-3 bg-primary-500 dark:bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-700 text-white rounded-xl font-semibold transition-all duration-300 flex items-center justify-center"
                   >
-                    <Icon icon="lucide:copy" class="w-5 h-5 mr-2" />
+                    <i-lucide-copy class="w-5 h-5 mr-2" />
                     Copy
                   </button>
                 </div>
@@ -89,7 +86,7 @@
                   <div
                     class="px-6 py-3 bg-green-500 text-white rounded-xl font-semibold flex items-center justify-center"
                   >
-                    <Icon icon="lucide:check" class="w-5 h-5 mr-2" />
+                    <i-lucide-check class="w-5 h-5 mr-2" />
                     Copied!
                   </div>
                 </div>

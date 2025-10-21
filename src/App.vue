@@ -69,7 +69,7 @@
               @click="toggleMobileMenu"
               class="p-2 rounded-lg hover:bg-warm-100 dark:hover:bg-dark-200 transition-colors"
             >
-              <Icon icon="lucide:menu" class="w-6 h-6 text-warm-700 dark:text-dark-700" />
+              <i-lucide-menu class="w-6 h-6 text-warm-700 dark:text-dark-700" />
             </button>
           </div>
         </div>
@@ -158,7 +158,7 @@
               class="w-10 h-10 bg-warm-700 dark:bg-dark-200 hover:bg-primary-600 dark:hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors"
               :title="social.name"
             >
-              <Icon :icon="social.icon" class="w-5 h-5" />
+              <component :is="social.icon" class="w-5 h-5" />
             </a>
           </div>
 
