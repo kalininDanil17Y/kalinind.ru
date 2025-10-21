@@ -61,10 +61,10 @@
                     @click="handleEmailClick"
                     class="text-lg font-mono bg-transparent text-warm-800 dark:text-dark-800 transition-all duration-300 cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
                   >
-                    <span v-if="!isEmailRevealed" class="select-none blur-sm hover:blur-sm">
-                      mail@example.com
+                    <span v-if="!isEmailRevealed" class="select-none blur-sm hover:blur-sm text-[11px] sm:text-[16px]">
+                      mail0example123@example.com
                     </span>
-                    <span v-else>
+                    <span v-else class="text-[11px] sm:text-[16px]">
                       {{ email }}
                     </span>
                   </button>

@@ -49,7 +49,7 @@ The application uses Vue 3's modern Composition API with TypeScript:
 
 - **Primary**: TailwindCSS 3.4.11 utility classes
 - **PostCSS**: Autoprefixer for cross-browser compatibility
-- **Configuration**: `tailwind.config.js` for custom theming
+- **Configuration**: `tailwind.config.ts` for custom theming
 
 ```vue
 <!-- Example of TailwindCSS usage in Vue components -->
@@ -122,7 +122,7 @@ import MyComponent from '@/components/MyComponent.vue'
 
 ### Custom TailwindCSS Configuration
 
-1. Update `tailwind.config.js` for custom theming:
+1. Update `tailwind.config.ts` for custom theming:
 
 ```javascript
 /** @type {import('tailwindcss').Config} */

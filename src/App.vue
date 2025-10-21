@@ -3,7 +3,7 @@
     class="min-h-screen bg-gradient-to-br from-warm-50 via-cream-50 to-primary-50 dark:from-dark-50 dark:via-dark-100 dark:to-primary-950 relative"
   >
     <!-- Global animated background decoration -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
       <div
         class="absolute -top-40 -right-40 w-80 h-80 bg-primary-100 dark:bg-primary-900/30 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 animate-blob"
       ></div>
@@ -16,12 +16,12 @@
     </div>
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-50/80 backdrop-blur-md border-b border-warm-100 dark:border-dark-300"
+      class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-50/80 backdrop-blur-md border-b border-warm-100 dark:border-dark-300 z-10"
     >
       <div class="container mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <div class="text-xl font-normal text-warm-800 dark:text-dark-800 pl-3">
+          <div class="text-[11px] sm:text-xl font-normal text-warm-800 dark:text-dark-800 pl-3">
             Danil Kalinin
           </div>
 
@@ -116,7 +116,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main>
+    <main class="z-10 relative">
       <!-- Hero Section -->
       <section id="hero">
         <HeroSection />
@@ -144,7 +144,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-warm-800 dark:bg-dark-100 text-white dark:text-dark-800 py-12">
+    <footer class="bg-warm-800 dark:bg-dark-100 text-white dark:text-dark-800 py-12 z-10 relative">
       <div class="container mx-auto px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center">
           <!-- Social links -->
@@ -174,8 +174,8 @@
 </template>
 
 <script setup lang="ts">
+import "./global.css";
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { Icon } from '@iconify/vue'
 import HeroSection from './components/HeroSection.vue'
 import TechnologiesSection from './components/TechnologiesSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
