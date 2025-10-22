@@ -73,7 +73,7 @@ export const enLocale: Locale = {
     title: 'Projects',
     subtitle: 'Some of the projects I\'ve worked on',
     personalTitle: 'My Projects',
-    personalSubtitle: 'Personal projects with open source code',
+    personalSubtitle: 'Personal projects',
     collaborativeTitle: 'Commercial Projects',
     collaborativeSubtitle: 'Projects I\'ve contributed to',
     viewMore: 'View more',

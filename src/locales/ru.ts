@@ -75,7 +75,7 @@ export const ruLocale: Locale = {
     title: 'Проекты',
     subtitle: 'Некоторые из проектов, над которыми я работал',
     personalTitle: 'Мои проекты',
-    personalSubtitle: 'Личные проекты с открытым исходным кодом',
+    personalSubtitle: 'Личные проекты',
     collaborativeTitle: 'Коммерческие проекты',
     collaborativeSubtitle: 'Проекты, в которых я принимал участие',
     viewMore: 'Подробнее',
